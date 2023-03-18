@@ -1,0 +1,7 @@
+Nokia Banner: https://www.reuters.com/technology/nokia-changes-iconic-logo-signal-strategy-shift-2023-02-26/
+Featured Hero Banner: Photo by <a href="https://unsplash.com/@christianw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Christian Wiediger</a> on <a href="https://unsplash.com/wallpapers/desktop/computer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Right Carret: https://www.svgrepo.com/svg/508274/angle-right
+Left Carret: https://www.svgrepo.com/svg/508275/angle-left
+
+Footer Parallax Banner: Photo by <a href="https://unsplash.com/@niftyleather?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nifty Leather</a> on <a href="https://unsplash.com/photos/Db3dNtDkguc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

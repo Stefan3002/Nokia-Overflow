@@ -1,0 +1,69 @@
+.featured {
+  min-height: 70vh;
+  margin: 3em 0;
+  color: white;
+}
+
+.featured-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  grid-area: hero;
+}
+.featured-hero .featured-hero-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.featured-hero p, .featured-hero h2 {
+  width: 50%;
+}
+
+.featured-two {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  background: #015aff;
+  grid-area: two;
+}
+
+.featured-one {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  color: black;
+  grid-area: one;
+}
+
+@media screen and (min-width: 900px) {
+  .featured {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "hero one" "hero two";
+  }
+}
+@media screen and (min-width: 2000px) {
+  .featured .featured-one, .featured .featured-two {
+    padding: 4rem 10rem;
+  }
+}
+@media screen and (min-width: 2800px) {
+  .featured .featured-one, .featured .featured-two {
+    padding: 4rem 15rem;
+  }
+}
+@media screen and (min-width: 3200px) {
+  .featured .featured-one, .featured .featured-two {
+    padding: 4rem 20rem;
+  }
+}
+
+/*# sourceMappingURL=featured.css.map */

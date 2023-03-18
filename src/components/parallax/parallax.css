@@ -1,0 +1,17 @@
+.parallax {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 0;
+  justify-content: center;
+  align-items: center;
+}
+.parallax .parallax-title {
+  font-size: 5em;
+}
+
+/*# sourceMappingURL=parallax.css.map */

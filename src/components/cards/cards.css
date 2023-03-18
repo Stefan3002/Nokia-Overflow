@@ -1,0 +1,19 @@
+.cards {
+  margin: 2rem 0;
+  align-items: center;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+@media screen and (min-width: 900px) {
+  .cards {
+    width: calc(100vw - 10em);
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/*# sourceMappingURL=cards.css.map */

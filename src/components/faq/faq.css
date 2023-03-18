@@ -1,0 +1,14 @@
+.faq-container {
+  margin: 0 0 2rem 0;
+}
+.faq-container .carret {
+  width: 55px;
+  transition: all 0.1s;
+}
+.faq-container .carret:hover, .faq-container .carret:focus {
+  background: whitesmoke;
+  transform: scale(1.1);
+  transition: all 0.1s;
+}
+
+/*# sourceMappingURL=faq.css.map */
