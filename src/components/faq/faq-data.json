@@ -11,6 +11,10 @@
     {
       "question": "Can I use Nokia Overflow without an account?",
       "answer": "Sadly, no. We must know who you are when you are answering other people's questions or when you are creating a new Nok"
+    },
+    {
+      "question": "How can I be sure I get correct answers?",
+      "answer": "Well, we can not guarantee the answers' correctness, but every single answer that you get has a metric that shows how many other people are agreeing with that answer."
     }
   ]
 }

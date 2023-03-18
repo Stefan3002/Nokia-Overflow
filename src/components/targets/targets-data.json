@@ -1,0 +1,29 @@
+{
+  "targets": [
+    {
+      "id": "target1",
+      "name": "System Engineer",
+      "description": "Linux, Kernel, Processes, Windows, Ubuntu"
+    },
+    {
+      "id": "target2",
+      "name": "WEB Developer",
+      "description": "HTML, React, Angular, Vue, CSS"
+    },
+    {
+      "id": "target3",
+      "name": "Network Administrator",
+      "description": "TCP/IP, UDP, Routers, Switches, SMTP"
+    },
+    {
+      "id": "target4",
+      "name": "Software Engineer",
+      "description": "Kanban, Agile, SCRUM, C++, Java, Javascript, Python"
+    },
+    {
+      "id": "target5",
+      "name": "Team Leader",
+      "description": "Organising, Leadership"
+    }
+  ]
+}

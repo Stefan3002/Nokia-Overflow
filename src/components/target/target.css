@@ -1,0 +1,25 @@
+.target-container {
+  margin: 1rem;
+  background: whitesmoke;
+  color: black;
+  padding: 1rem;
+  border-radius: 10px;
+  flex: 1 1 0;
+  align-self: stretch;
+  transition: all 0.2s;
+}
+.target-container .target-icon {
+  width: 100px;
+}
+
+.highlighted-target {
+  background: #015aff;
+  color: white;
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+.highlighted-target .high-text {
+  color: black;
+}
+
+/*# sourceMappingURL=target.css.map */

@@ -5,3 +5,9 @@ Right Carret: https://www.svgrepo.com/svg/508274/angle-right
 Left Carret: https://www.svgrepo.com/svg/508275/angle-left
 
 Footer Parallax Banner: Photo by <a href="https://unsplash.com/@niftyleather?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nifty Leather</a> on <a href="https://unsplash.com/photos/Db3dNtDkguc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Network Administrator Icon: https://www.svgrepo.com/svg/388129/network-tree
+Web Dev Icon: https://www.svgrepo.com/svg/299073/web-ui
+System Admin Icon: https://www.svgrepo.com/svg/499815/network-server
+Software Engineer Icon: https://www.svgrepo.com/svg/474372/code
+Team Leader Icon: https://www.svgrepo.com/svg/192235/team

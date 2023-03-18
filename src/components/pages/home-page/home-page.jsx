@@ -8,6 +8,7 @@ import FooterBanner from '../../../utils/imgs/footer/FooterBanner.jpg'
 import parallaxHeaderData from '../../parallax/parallaxHeader-data.json'
 import parallaxFooterData from '../../parallax/parallaxFooter-data.json'
 import Footer from "../../footer/footer";
+import Targets from "../../targets/targets";
 
 const HomePage = () => {
     return (
@@ -17,6 +18,9 @@ const HomePage = () => {
                 <Cards />
             </div>
             <Featured />
+            <div className="wrapper">
+                <Targets />
+            </div>
             <div className="wrapper">
                 <FAQ />
             </div>
