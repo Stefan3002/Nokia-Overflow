@@ -6,9 +6,9 @@ import Card from "../card/card";
 import cardsData from './cards-data.json'
 const Cards = () => {
     return (
-        <div className='cards'>
+        <div className='cards' id='high'>
             {cardsData.cards.map((cardData => {
-                return <Card id={cardData.id} img={cardData.id === 1 ? img : cardData.id === 2 ? img2 : img3} title={cardData.title} text={cardData.text} />
+                return <Card key={cardData.id} id={cardData.id} img={cardData.id === 1 ? img : cardData.id === 2 ? img2 : img3} title={cardData.title} text={cardData.text} />
             }))}
         </div>
     )

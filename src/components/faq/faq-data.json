@@ -9,6 +9,10 @@
       "answer": "It is a question that you can ask on Nokia Overflow"
     },
     {
+      "question": "What personal data does Nokia Overflow collect?",
+      "answer": "We collect the data that you input in the signup form when you create your account, and we use cookies to store the current session so that you do not have to constantly log in."
+    },
+    {
       "question": "Can I use Nokia Overflow without an account?",
       "answer": "Sadly, no. We must know who you are when you are answering other people's questions or when you are creating a new Nok"
     },

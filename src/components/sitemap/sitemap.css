@@ -1,5 +1,6 @@
 .sitemap {
-  list-style-type: ">  ";
+  list-style-type: none;
+  text-align: center;
 }
 
 /*# sourceMappingURL=sitemap.css.map */

@@ -21,7 +21,7 @@ const FAQ = () => {
     }
 
     return (
-        <div className='faq-container'>
+        <div id='faq' className='faq-container'>
             <Question question={FAQData.questions[questionIdx].question} answer={FAQData.questions[questionIdx].answer} />
             <img className='carret' onClick={previousQuestion} src={LeftCarret} alt="Previous" />
             <img className='carret' onClick={nextQuestion} src={RightCarret} alt="Next" />

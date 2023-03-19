@@ -1,17 +1,17 @@
 {
   "cards": [
     {
-      "id": 1,
+      "id": "card1",
       "title": "Fast",
       "text": "In a rush? Do not worry, just log in, create a new Nok, and your Nokia colleagues will help you as soon as possible!"
     },
     {
-      "id": 2,
+      "id": "card2",
       "title": "Reliable",
       "text": "Not sure if the answer you got is correct? Worry not! Every answer on Nokia Overflow has a dedicated rating that shows you how many other people agree with that answer."
     },
     {
-      "id": 3,
+      "id": "card3",
       "title": "Made for everyone",
       "text": "Are you a software engineer? Or maybe a network administrator? It does not matter. Nokia Overflow offers dedicated labels for every job you fit in!"
     }

@@ -9,26 +9,32 @@ import parallaxHeaderData from '../../parallax/parallaxHeader-data.json'
 import parallaxFooterData from '../../parallax/parallaxFooter-data.json'
 import Footer from "../../footer/footer";
 import Targets from "../../targets/targets";
+import Navigation from "../../navigation/navigation";
 
 const HomePage = () => {
     return (
-        <div className='home-page-container'>
-            <Parallax img={HeaderBanner} parallaxData={parallaxHeaderData} showButton={false} />
-            <div className="wrapper">
-                <Cards />
+        <>
+            <header>
+                <Navigation />
+            </header>
+            <div className='home-page-container'>
+                <Parallax img={HeaderBanner} parallaxData={parallaxHeaderData} showButton={false} />
+                <div className="wrapper">
+                    <Cards />
+                </div>
+                <Featured />
+                <div className="wrapper">
+                    <Targets />
+                </div>
+                <div className="wrapper">
+                    <FAQ />
+                </div>
+                <Parallax img={FooterBanner} parallaxData={parallaxFooterData} showButton={true} buttonText="Let's go!" buttonBorderColor='white' buttonBorderSize='4' buttonBolded={true}  />
+                <div className="wrapper">
+                    <Footer />
+                </div>
             </div>
-            <Featured />
-            <div className="wrapper">
-                <Targets />
-            </div>
-            <div className="wrapper">
-                <FAQ />
-            </div>
-            <Parallax img={FooterBanner} parallaxData={parallaxFooterData} showButton={true} buttonText="Let's go!" buttonBorderColor='white' buttonBorderSize='4' buttonBolded={true}  />
-            <div className="wrapper">
-                <Footer />
-            </div>
-        </div>
+        </>
     )
 }
 export default HomePage

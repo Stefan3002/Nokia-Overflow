@@ -5,8 +5,9 @@ const Navigation = () => {
         <ul className='navigation-container'>
             <li className='navigation-item'>NokiaOverflow</li>
             <div className='right-navigation-section'>
-                <Link to='/about'><li className='navigation-item'>About</li></Link>
-                <Link to='/high'><li className='navigation-item'>Highlights</li></Link>
+                <li className='navigation-item'><a href="#faq">FAQ</a></li>
+               <li className='navigation-item'><a href="#high">Highlights</a></li>
+                <Link to='/app'><li className='navigation-item'>Enter</li></Link>
             </div>
         </ul>
     )

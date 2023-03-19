@@ -1,4 +1,9 @@
 .navigation-container {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: calc(100% - 4rem);
+  background: white;
   list-style-type: none;
   padding: 2rem;
   display: flex;
