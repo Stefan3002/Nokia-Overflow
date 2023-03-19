@@ -13,7 +13,7 @@ import Targets from "../../targets/targets";
 const HomePage = () => {
     return (
         <div className='home-page-container'>
-            <Parallax img={HeaderBanner} parallaxData={parallaxHeaderData} />
+            <Parallax img={HeaderBanner} parallaxData={parallaxHeaderData} showButton={false} />
             <div className="wrapper">
                 <Cards />
             </div>
@@ -24,7 +24,7 @@ const HomePage = () => {
             <div className="wrapper">
                 <FAQ />
             </div>
-            <Parallax img={FooterBanner} parallaxData={parallaxFooterData} />
+            <Parallax img={FooterBanner} parallaxData={parallaxFooterData} showButton={true} buttonText="Let's go!" buttonBorderColor='white' buttonBorderSize='4' buttonBolded={true}  />
             <div className="wrapper">
                 <Footer />
             </div>

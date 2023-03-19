@@ -4,6 +4,8 @@ Featured Hero Banner: Photo by <a href="https://unsplash.com/@christianw?utm_sou
 Right Carret: https://www.svgrepo.com/svg/508274/angle-right
 Left Carret: https://www.svgrepo.com/svg/508275/angle-left
 
+Right Button Arrow: https://www.svgrepo.com/svg/508312/right
+
 Footer Parallax Banner: Photo by <a href="https://unsplash.com/@niftyleather?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nifty Leather</a> on <a href="https://unsplash.com/photos/Db3dNtDkguc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
 Network Administrator Icon: https://www.svgrepo.com/svg/388129/network-tree
