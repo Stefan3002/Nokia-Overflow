@@ -1,0 +1,25 @@
+.app-navigation-container {
+  margin: 0;
+  width: 4vw;
+  height: calc(100vh - 4rem);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #015aff;
+  color: white;
+  padding: 2rem;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.app-navigation-container .app-navigation-bottom {
+  list-style-type: none;
+  padding: 0;
+}
+.app-navigation-container .app-navigation-icon {
+  width: 50px;
+}
+
+/*# sourceMappingURL=app-navigation.css.map */

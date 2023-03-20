@@ -2,11 +2,11 @@ import './targets.css'
 import Typewriter from "../typewriter/typewriter";
 import targetsData from './targets-data.json'
 import Target from "../target/target";
-import NetAdmin from '../../../utils/imgs/smalls/NetAdmin.svg'
-import WebDev from '../../../utils/imgs/smalls/WebDev.svg'
-import SystemAdmin from '../../../utils/imgs/smalls/SystemAdmin.svg'
-import SoftwareEng from '../../../utils/imgs/smalls/SoftwareEng.svg'
-import TeamLeader from '../../../utils/imgs/smalls/TeamLeader.svg'
+import NetAdmin from '../../../utils/imgs/landing-page/smalls/NetAdmin.svg'
+import WebDev from '../../../utils/imgs/landing-page/smalls/WebDev.svg'
+import SystemAdmin from '../../../utils/imgs/landing-page/smalls/SystemAdmin.svg'
+import SoftwareEng from '../../../utils/imgs/landing-page/smalls/SoftwareEng.svg'
+import TeamLeader from '../../../utils/imgs/landing-page/smalls/TeamLeader.svg'
 const Targets = () => {
     return (
         <div className='targets-container'>

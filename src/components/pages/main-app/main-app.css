@@ -1,0 +1,8 @@
+.main-app-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1 1 0;
+  align-self: stretch;
+}
+
+/*# sourceMappingURL=main-app.css.map */

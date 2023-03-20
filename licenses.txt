@@ -13,3 +13,11 @@ Web Dev Icon: https://www.svgrepo.com/svg/299073/web-ui
 System Admin Icon: https://www.svgrepo.com/svg/499815/network-server
 Software Engineer Icon: https://www.svgrepo.com/svg/474372/code
 Team Leader Icon: https://www.svgrepo.com/svg/192235/team
+
+Heart Icon: https://www.svgrepo.com/svg/508298/heart
+LogOut Icon: https://www.svgrepo.com/svg/508314/power
+Trending Icon: https://www.svgrepo.com/svg/508271/badge
+
+LikeIcon: https://www.svgrepo.com/svg/499778/like
+
+PinIcon: https://www.svgrepo.com/svg/408412/heart-love-like-favorite

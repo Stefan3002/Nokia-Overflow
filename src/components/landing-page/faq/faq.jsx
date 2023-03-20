@@ -2,8 +2,8 @@ import './faq.css'
 import {useState} from "react";
 import FAQData from './faq-data.json'
 import Question from "../question/question";
-import RightCarret from '../../../utils/imgs/smalls/RightCarret.svg'
-import LeftCarret from '../../../utils/imgs/smalls/LeftCarret.svg'
+import RightCarret from '../../../utils/imgs/landing-page/smalls/RightCarret.svg'
+import LeftCarret from '../../../utils/imgs/landing-page/smalls/LeftCarret.svg'
 const FAQ = () => {
 
     const [questionIdx, setQuestionIdx] = useState(0)

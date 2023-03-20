@@ -3,8 +3,8 @@ import Parallax from "../../landing-page/parallax/parallax";
 import Cards from "../../landing-page/cards/cards";
 import Featured from "../../landing-page/featured/featured";
 import FAQ from "../../landing-page/faq/faq";
-import HeaderBanner from '../../../utils/imgs/parallax/NokiaBanner.jpg'
-import FooterBanner from '../../../utils/imgs/footer/FooterBanner.jpg'
+import HeaderBanner from '../../../utils/imgs/landing-page/parallax/NokiaBanner.jpg'
+import FooterBanner from '../../../utils/imgs/landing-page/footer/FooterBanner.jpg'
 import parallaxHeaderData from '../../landing-page/parallax/parallaxHeader-data.json'
 import parallaxFooterData from '../../landing-page/parallax/parallaxFooter-data.json'
 import Footer from "../../landing-page/footer/footer";
