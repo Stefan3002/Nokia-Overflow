@@ -9,11 +9,6 @@ const startTypewriter = () => {
     const acceleration = 10
     let waitBeforeNextType = 200;
 
-// document.querySelector("button").addEventListener("click",function(){
-//     waitBeforeNextType = document.querySelector("input").value * 1000
-//     words[0] = document.querySelector("#Text").value
-// })
-
     // This is just to avoid re-renders (case in which it would start twice)
     if(!started) {
         helpTypeWrite()

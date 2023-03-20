@@ -1,15 +1,15 @@
 import './home-page.css'
-import Parallax from "../../parallax/parallax";
-import Cards from "../../cards/cards";
-import Featured from "../../featured/featured";
-import FAQ from "../../faq/faq";
+import Parallax from "../../landing-page/parallax/parallax";
+import Cards from "../../landing-page/cards/cards";
+import Featured from "../../landing-page/featured/featured";
+import FAQ from "../../landing-page/faq/faq";
 import HeaderBanner from '../../../utils/imgs/parallax/NokiaBanner.jpg'
 import FooterBanner from '../../../utils/imgs/footer/FooterBanner.jpg'
-import parallaxHeaderData from '../../parallax/parallaxHeader-data.json'
-import parallaxFooterData from '../../parallax/parallaxFooter-data.json'
-import Footer from "../../footer/footer";
-import Targets from "../../targets/targets";
-import Navigation from "../../navigation/navigation";
+import parallaxHeaderData from '../../landing-page/parallax/parallaxHeader-data.json'
+import parallaxFooterData from '../../landing-page/parallax/parallaxFooter-data.json'
+import Footer from "../../landing-page/footer/footer";
+import Targets from "../../landing-page/targets/targets";
+import Navigation from "../../landing-page/navigation/navigation";
 
 const HomePage = () => {
     return (

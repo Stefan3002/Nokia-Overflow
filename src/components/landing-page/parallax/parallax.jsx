@@ -1,5 +1,5 @@
 import './parallax.css'
-import Button from "../button/button";
+import Button from "../../button/button";
 
 const Parallax = ({img, parallaxData, showButton, buttonText, buttonBorderColor, buttonBorderSize, buttonBolded}) => {
     return (

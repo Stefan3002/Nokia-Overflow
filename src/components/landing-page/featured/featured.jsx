@@ -1,5 +1,5 @@
 import './featured.css'
-import img from '../../utils/imgs/featured/FeaturedBanner.jpg'
+import img from '../../../utils/imgs/featured/FeaturedBanner.jpg'
 import featuredData from './featured-data.json'
 const Featured = () => {
     return (

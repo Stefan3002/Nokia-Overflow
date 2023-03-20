@@ -1,6 +1,6 @@
 import './App.css';
 import {Route, Router, Routes} from "react-router";
-import Navigation from "./components/navigation/navigation";
+import Navigation from "./components/landing-page/navigation/navigation";
 import HomePage from "./components/pages/home-page/home-page";
 
 function App() {
