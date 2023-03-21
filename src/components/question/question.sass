@@ -1,8 +1,25 @@
 .question-container
+  margin: 1rem 0 0 0
+  max-width: 700px
   background: linear-gradient(to right, rgba(1, 90, 255, 0.3), rgba(1, 90, 255, 0.8))
   border-radius: 10px
+  .question-content
+    text-align: justify
   .question-top
-    padding: 1rem
+    padding: 0 1rem 0 0
+    display: flex
+    justify-content: center
+  .question-top-left
+    border-radius: 10px 0 0 0
+    padding: 0 .6rem
+    margin: 0 2rem 0 0
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background: whitesmoke
+  .question-top-right
+    padding: .5rem 0
   .question-bottom
     padding: 1rem
     background: whitesmoke
@@ -10,7 +27,7 @@
     justify-content: space-evenly
     align-items: center
   .question-icon
-    width: 50px
+    width: 30px
     margin: 0 .5rem
   .question-likes
     display: flex
@@ -30,3 +47,13 @@
     display: flex
     justify-content: center
     align-items: center
+
+@media screen and (max-width: 1100px)
+  .question-container
+    .question-top
+      flex-direction: column
+    .question-top-left
+      flex-direction: row
+      width: 100%
+    .question-top-right
+      padding: 0 0 0 1rem

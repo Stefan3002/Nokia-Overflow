@@ -1,9 +1,29 @@
 .question-container {
+  margin: 1rem 0 0 0;
+  max-width: 700px;
   background: linear-gradient(to right, rgba(1, 90, 255, 0.3), rgba(1, 90, 255, 0.8));
   border-radius: 10px;
 }
+.question-container .question-content {
+  text-align: justify;
+}
 .question-container .question-top {
-  padding: 1rem;
+  padding: 0 1rem 0 0;
+  display: flex;
+  justify-content: center;
+}
+.question-container .question-top-left {
+  border-radius: 10px 0 0 0;
+  padding: 0 0.6rem;
+  margin: 0 2rem 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: whitesmoke;
+}
+.question-container .question-top-right {
+  padding: 0.5rem 0;
 }
 .question-container .question-bottom {
   padding: 1rem;
@@ -13,7 +33,7 @@
   align-items: center;
 }
 .question-container .question-icon {
-  width: 50px;
+  width: 30px;
   margin: 0 0.5rem;
 }
 .question-container .question-likes {
@@ -39,6 +59,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .question-container .question-top {
+    flex-direction: column;
+  }
+  .question-container .question-top-left {
+    flex-direction: row;
+    width: 100%;
+  }
+  .question-container .question-top-right {
+    padding: 0 0 0 1rem;
+  }
 }
 
 /*# sourceMappingURL=question.css.map */

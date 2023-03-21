@@ -3,10 +3,17 @@ import {Outlet} from "react-router";
 import HeartIcon from '../../utils/imgs/app/icons/HeartIcon.svg'
 import LogoutIcon from '../../utils/imgs/app/icons/LogoutIcon.svg'
 import TrendingIcon from '../../utils/imgs/app/icons/TrendingIcon.svg'
+import {useDispatch} from "react-redux";
+import {setNavOpened} from "../../utils/store/navigation-store/navigation-actions";
 const AppNavigation = () => {
+    const dispatch = useDispatch()
+    const openNav = () => {
+        dispatch(setNavOpened(true))
+    }
+
     return (
         <>
-            <ul className='app-navigation-container'>
+            <ul onMouseEnter={openNav} className='app-navigation-container'>
                 <li>NK</li>
                 <ul className='app-navigation-bottom'>
                     <li><img className='app-navigation-icon' src={HeartIcon} alt='Pinned Noks'/></li>

@@ -1,11 +1,11 @@
-import './question.css'
-const Question = ({question, answer}) => {
+import './faq-question.css'
+const FaqQuestion = ({question, answer}) => {
     return (
-        <div className='question-container'>
+        <div className='faq-question-container'>
             <h3>{question}</h3>
             <p className="delimiter">════ ⋆★⋆ ════</p>
             <p>{answer}</p>
         </div>
     )
 }
-export default Question
+export default FaqQuestion

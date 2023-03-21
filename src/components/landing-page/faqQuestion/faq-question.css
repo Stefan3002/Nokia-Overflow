@@ -1,0 +1,11 @@
+.faq-question-container {
+  width: 60%;
+  margin: 0 auto;
+  line-height: 16px;
+}
+.faq-question-container h3 {
+  font-size: 2rem;
+  line-height: 30px;
+}
+
+/*# sourceMappingURL=faq-question.css.map */

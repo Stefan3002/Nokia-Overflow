@@ -27,7 +27,7 @@ const Trending = () => {
     ]
 
     return (
-        <div className='trendings-container'>
+        <div className='trending-container'>
             <h2>Trending</h2>
             {trendingQuestions.map((trendingQuestion) => {
                 return <Question questionData={trendingQuestion} />

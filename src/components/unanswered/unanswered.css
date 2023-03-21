@@ -1,8 +1,8 @@
-.trending-container {
+.unanswered-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-/*# sourceMappingURL=trending.css.map */
+/*# sourceMappingURL=unanswered.css.map */
