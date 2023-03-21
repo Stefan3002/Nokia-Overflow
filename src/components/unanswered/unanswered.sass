@@ -1,5 +1,12 @@
 .unanswered-container
-  display: flex
-  justify-content: center
-  align-items: center
-  flex-direction: column
+  .unanswered-questions
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+
+@media screen and (min-width: 2300px)
+  .unanswered-container
+    .unanswered-questions
+      flex-direction: row

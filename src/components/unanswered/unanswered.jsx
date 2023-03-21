@@ -92,11 +92,13 @@ const Unanswered = () => {
     return (
         <div className='unanswered-container'>
             <h2>Unanswered Questions</h2>
-            {
-                unasweredQuestions.map(unansweredQuestion => {
-                    return <Question questionData={unansweredQuestion} />
-                })
-            }
+            <div className="unanswered-questions">
+                {
+                    unasweredQuestions.map(unansweredQuestion => {
+                        return <Question questionData={unansweredQuestion} />
+                    })
+                }
+            </div>
         </div>
     )
 }

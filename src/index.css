@@ -1,7 +1,10 @@
 html{
   scroll-behavior: smooth;
 }
+:root {
+  --main-color: #26C485;
 
+}
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;

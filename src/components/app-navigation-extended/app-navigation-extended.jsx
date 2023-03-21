@@ -1,16 +1,28 @@
 import './app-navigation-extended.css'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getNavOpened} from "../../utils/store/navigation-store/navigation-selectors";
+import {setNavOpened} from "../../utils/store/navigation-store/navigation-actions";
+import HeartIcon from "../../utils/imgs/app/icons/HeartIcon.svg";
+import TrendingIcon from "../../utils/imgs/app/icons/TrendingIcon.svg";
+import LogoutIcon from "../../utils/imgs/app/icons/LogoutIcon.svg";
+import ProfileIcon from "../../utils/imgs/app/icons/UserIcon.svg";
+import {Link} from "react-router-dom";
 const AppNavigationExtended = () => {
-    const opened = useSelector(getNavOpened)
-    console.log(opened)
-    if (opened)
-        return (
-            <div className='app-navigation-extended-container'>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium aliquam animi blanditiis consequatur deleniti dignissimos facere harum id laudantium, mollitia necessitatibus nesciunt nostrum officia quas, quo saepe voluptate voluptatum!</p>
-            </div>
-        )
-    else
-        return null
+    const dispatch = useDispatch()
+    const closeNav = () => {
+        dispatch(setNavOpened(false))
+    }
+
+    return (
+        <ul onMouseLeave={closeNav} className='app-navigation-extended-container'>
+            <Link to='/app'><li>NK</li></Link>
+            <ul className='app-navigation-bottom'>
+                <Link to='profile'><li><img className='app-navigation-icon' src={ProfileIcon} alt='Profile'/><p className='nav-option-text'>Profile</p></li></Link>
+                <Link to='favourites'><li><img className='app-navigation-icon' src={HeartIcon} alt='Pinned Noks'/><p className='nav-option-text'>Pinned Noks</p></li></Link>
+                <Link to='trending'><li><img className='app-navigation-icon' src={TrendingIcon} alt='Trending Noks'/><p className='nav-option-text'>Trending Noks</p></li></Link>
+                <Link to='logout'><li><img className='app-navigation-icon' src={LogoutIcon} alt='Log Out'/><p className='nav-option-text'>Log Out</p></li></Link>
+            </ul>
+       </ul>
+    )
 }
 export default AppNavigationExtended

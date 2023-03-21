@@ -1,8 +1,14 @@
-.trending-container {
+.trending-container .trending-questions {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+@media screen and (min-width: 2300px) {
+  .trending-container .trending-questions {
+    flex-direction: row;
+  }
 }
 
 /*# sourceMappingURL=trending.css.map */
