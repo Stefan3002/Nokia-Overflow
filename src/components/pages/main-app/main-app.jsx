@@ -10,10 +10,10 @@ const MainApp = () => {
             <Parallax parallaxData={ParallaxData} img={ParallaxImg} height='40vh' />
             <div className='main-app-container'>
                 <div className="main-app-left">
-                    <Trending />
+                    <Trending detailed={false} />
                 </div>
                 <div className="main-app-right">
-                    <Unanswered />
+                    {/*<Unanswered />*/}
                 </div>
             </div>
         </>

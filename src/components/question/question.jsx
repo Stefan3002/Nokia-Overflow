@@ -4,10 +4,10 @@ import Button from "../button/button";
 import LikeIcon from '../../utils/imgs/app/icons/LikeIcon.svg'
 import Divider from "../divider/divider";
 import PinIcon from '../../utils/imgs/app/icons/PinIcon.svg'
-const Question = ({questionData}) => {
+const Question = ({detailed, questionData, animationDelay}) => {
     const {questionTitle, questionContent, likes, dislikes, date} = questionData
     return (
-        <div className='question-container'>
+        <div style={{animationDelay: `${animationDelay}ms`}} className='question-container'>
             <div className="question-top">
                 <div className="question-top-left">
                     <div className="question-likes">
@@ -22,7 +22,7 @@ const Question = ({questionData}) => {
                 <div className="question-top-right">
                     <h4>{questionTitle}</h4>
                     <Divider />
-                    <p className='question-content'>{questionContent.slice(0, questionConfig.questionCharsLimit)} {questionContent.length > questionConfig.questionCharsLimit ? "Read more!" : null}</p>
+                    {detailed ? <p className='question-content'>{questionContent.slice(0, questionConfig.questionCharsLimit)} {questionContent.length > questionConfig.questionCharsLimit ? "Read more!" : null}</p> : null}
                 </div>
             </div>
             <div className="question-bottom">

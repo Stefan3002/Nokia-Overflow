@@ -1,11 +1,16 @@
 .trending-container
   .trending-questions
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: column
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+  .trending-header
+    .trending-header-top
+      margin: 1rem 0 0 0
+      display: flex
+      justify-content: center
+      align-items: center
+      gap: 1rem
 
-@media screen and (min-width: 2300px)
+@media screen and (max-width: 1100px)
   .trending-container
     .trending-questions
-      flex-direction: row
+      flex-direction: column
