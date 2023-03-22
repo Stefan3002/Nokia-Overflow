@@ -28,3 +28,11 @@ Profile Banner: Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_sou
 
 
 Main App Banner: Photo by <a href="https://unsplash.com/@orpheusmss?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Orfeas Green</a> on <a href="https://unsplash.com/wallpapers/cool/abstract?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+
+AuthLogin Banner: Photo by <a href="https://unsplash.com/@mymind?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">mymind</a> on <a href="https://unsplash.com/wallpapers/cool/abstract?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+
+Fast Icon: https://www.svgrepo.com/svg/131682/fast-forward
+Badge Icon: https://www.svgrepo.com/svg/33762/trophy
+ReliableIcon: https://www.svgrepo.com/svg/99170/checked

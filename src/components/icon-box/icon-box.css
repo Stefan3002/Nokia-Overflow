@@ -1,0 +1,9 @@
+.icon-box-container {
+  display: flex;
+  gap: 1rem;
+}
+.icon-box-container .icon-box-img {
+  width: 50px;
+}
+
+/*# sourceMappingURL=icon-box.css.map */
