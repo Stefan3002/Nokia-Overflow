@@ -10,10 +10,21 @@ import fastIcon from '../../../utils/imgs/app/icons/FastIcon.svg'
 import badgeIcon from '../../../utils/imgs/app/icons/BadgeIcon.svg'
 import checkIcon from '../../../utils/imgs/app/icons/CheckIcon.svg'
 import Divider from "../../divider/divider";
+import {connectWithGoogle} from "../../../utils/firebase/firebase";
+import {useDispatch} from "react-redux";
+import {setUser} from "../../../utils/store/user-store/user-actions";
 const Auth = () => {
     const nav = useNavigate()
+    const dispatch = useDispatch()
     const createAccount = (event) => {
         event.preventDefault()
+        nav('/app')
+    }
+    const connectWithGoogleFront = async () => {
+        const user = await connectWithGoogle()
+        dispatch(setUser(user.user))
+    //     Send user to DB
+    //     TODO
         nav('/app')
     }
 
@@ -35,6 +46,7 @@ const Auth = () => {
                 </div>
                 <div className="auth-right">
                     <h2>Sign-up</h2>
+                    <p onClick={connectWithGoogleFront}>Google</p>
                     <form onSubmit={createAccount} action="">
                         <SearchInput placeholder='Username' borderSize='2' borderColor='var(--main-color)' />
                         <SearchInput placeholder='Password' borderSize='2' borderColor='var(--main-color)' />
