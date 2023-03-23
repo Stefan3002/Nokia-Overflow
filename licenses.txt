@@ -36,3 +36,5 @@ AuthLogin Banner: Photo by <a href="https://unsplash.com/@mymind?utm_source=unsp
 Fast Icon: https://www.svgrepo.com/svg/131682/fast-forward
 Badge Icon: https://www.svgrepo.com/svg/33762/trophy
 ReliableIcon: https://www.svgrepo.com/svg/99170/checked
+
+Loader: https://loading.io/css/

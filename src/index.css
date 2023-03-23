@@ -5,6 +5,9 @@ html{
   --main-color: #26C485;
 
 }
+.logo{
+  width: 70px
+}
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;

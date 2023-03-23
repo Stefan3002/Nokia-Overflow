@@ -6,9 +6,27 @@ import MainApp from "./components/pages/main-app/main-app";
 import Profile from "./components/pages/profile/profile";
 import Auth from "./components/pages/auth/auth";
 import AuthLogin from "./components/pages/auth-login/auth-login";
+import {useEffect} from "react";
+import {stateListener} from "./utils/firebase/firebase";
+import {setUserError, setUserFinished, setUserStart} from "./utils/store/user-store/user-actions";
+import {useDispatch} from "react-redux";
 
 
 function App() {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        stateListener((user) => {
+            dispatch(setUserStart())
+            try{
+                dispatch(setUserFinished(user))
+            }catch (err){
+                dispatch(setUserError(err))
+            }
+
+        })
+    }, [])
+
   return (
     <div className="App">
         <Routes>

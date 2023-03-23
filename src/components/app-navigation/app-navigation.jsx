@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setNavOpened} from "../../utils/store/navigation-store/navigation-actions";
 import {getNavOpened} from "../../utils/store/navigation-store/navigation-selectors";
 import AppNavigationExtended from "../app-navigation-extended/app-navigation-extended";
+import logo from '../../utils/imgs/LogoNokiaOverflow.svg'
 const AppNavigation = () => {
     const navOpened = useSelector(getNavOpened)
     const dispatch = useDispatch()
@@ -19,7 +20,7 @@ const AppNavigation = () => {
         <>
             {navOpened ? <AppNavigationExtended /> : null}
             <ul onMouseEnter={openNav} className='app-navigation-container'>
-                <li>NK</li>
+                <li><img className='logo' src={logo} alt="NK"/></li>
                 <ul className='app-navigation-bottom'>
                     <li><img className='app-navigation-icon' src={ProfileIcon} alt='Profile'/></li>
                     <li><img className='app-navigation-icon' src={HeartIcon} alt='Pinned Noks'/></li>

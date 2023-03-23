@@ -12,7 +12,7 @@ import checkIcon from '../../../utils/imgs/app/icons/CheckIcon.svg'
 import Divider from "../../divider/divider";
 import {connectWithGoogle} from "../../../utils/firebase/firebase";
 import {useDispatch} from "react-redux";
-import {setUser} from "../../../utils/store/user-store/user-actions";
+import {setUserFinished} from "../../../utils/store/user-store/user-actions";
 const Auth = () => {
     const nav = useNavigate()
     const dispatch = useDispatch()
@@ -22,7 +22,7 @@ const Auth = () => {
     }
     const connectWithGoogleFront = async () => {
         const user = await connectWithGoogle()
-        dispatch(setUser(user.user))
+        dispatch(setUserFinished(user.user))
     //     Send user to DB
     //     TODO
         nav('/app')

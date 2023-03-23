@@ -25,6 +25,7 @@
   justify-content: center;
 }
 .app-navigation-extended-container .app-navigation-bottom li {
+  cursor: pointer;
   display: flex;
   align-items: center;
   align-self: stretch;
