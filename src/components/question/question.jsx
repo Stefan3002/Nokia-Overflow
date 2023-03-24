@@ -4,8 +4,9 @@ import Button from "../button/button";
 import LikeIcon from '../../utils/imgs/app/icons/LikeIcon.svg'
 import Divider from "../divider/divider";
 import PinIcon from '../../utils/imgs/app/icons/PinIcon.svg'
+import CategoryIcon from "../category-icon/category-icon";
 const Question = ({detailed, questionData, animationDelay}) => {
-    const {questionTitle, questionContent, likes, dislikes, date} = questionData
+    const {questionTitle, questionContent, likes, dislikes, date, category} = questionData
     return (
         <div style={{animationDelay: `${animationDelay}ms`}} className='question-container'>
             <div className="question-top">
@@ -26,11 +27,13 @@ const Question = ({detailed, questionData, animationDelay}) => {
                 </div>
             </div>
             <div className="question-bottom">
-                <p>{date}</p>
-                <div className="question-bottom-right">
-
+                <div className="question-bottom-left">
+                    <CategoryIcon cat={category} />
                 </div>
-                <img className='question-icon' src={PinIcon} alt="Pin"/>
+                <div className="question-bottom-right">
+                    <p>{date}</p>
+                    <img className='question-icon' src={PinIcon} alt="Pin"/>
+                </div>
             </div>
         </div>
     )

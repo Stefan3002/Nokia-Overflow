@@ -23,6 +23,15 @@
   justify-content: center;
   align-items: center;
 }
+.auth-container .auth-icon {
+  transition: all 0.2s;
+  width: 35px;
+  cursor: pointer;
+}
+.auth-container .auth-icon:hover, .auth-container .auth-icon:focus {
+  transform: scale(1.2);
+  transition: all 0.2s;
+}
 
 @media screen and (max-width: 1100px) {
   .auth-container .auth-content {
@@ -30,4 +39,4 @@
   }
 }
 
-/*# sourceMappingURL=auth-login.css.map */
+/*# sourceMappingURL=auth.css.map */

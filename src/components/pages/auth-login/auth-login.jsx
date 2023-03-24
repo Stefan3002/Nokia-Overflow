@@ -10,10 +10,23 @@ import fastIcon from '../../../utils/imgs/app/icons/FastIcon.svg'
 import badgeIcon from '../../../utils/imgs/app/icons/BadgeIcon.svg'
 import checkIcon from '../../../utils/imgs/app/icons/CheckIcon.svg'
 import Divider from "../../divider/divider";
+import googleIcon from "../../../utils/imgs/app/icons/GoogleIcon.svg";
+import {connectWithGoogle} from "../../../utils/firebase/firebase";
+import {setUserFinished} from "../../../utils/store/user-store/user-actions";
+import {useDispatch} from "react-redux";
 const AuthLogin = () => {
     const nav = useNavigate()
-    const createAccount = (event) => {
-        event.preventDefault()
+    const dispatch = useDispatch()
+
+    const loginAccount = () => {
+
+    }
+
+    const connectWithGoogleFront = async () => {
+        const user = await connectWithGoogle()
+        dispatch(setUserFinished(user.user))
+        //     Send user to DB
+        //     TODO
         nav('/app')
     }
 
@@ -35,7 +48,8 @@ const AuthLogin = () => {
                 </div>
                 <div className="auth-right">
                     <h2>Log in</h2>
-                    <form onSubmit={createAccount} action="">
+                    <p onClick={connectWithGoogleFront}><img className='auth-icon' src={googleIcon} alt="Google Log In"/></p>
+                    <form onSubmit={loginAccount} action="">
                         <SearchInput placeholder='Username' borderSize='2' borderColor='var(--main-color)' />
                         <SearchInput placeholder='Password' borderSize='2' borderColor='var(--main-color)' />
                         <SearchInput placeholder='Confirm password' borderSize='2' borderColor='var(--main-color)' />

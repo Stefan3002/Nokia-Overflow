@@ -9,29 +9,28 @@ import {getUser, getUserLoading} from "../../../utils/store/user-store/user-sele
 import {useNavigate} from "react-router";
 import Blur from "../../blur/blur";
 import Loader from "../../loader/loader";
+import {getCreateQuestionOpened} from "../../../utils/store/utils-store/utils-selectors";
+import NewQuestion from "../../new-question/new-question";
 
 const MainApp = () => {
-    const nav = useNavigate()
-    const user = useSelector(getUser)
-    const isLoading = useSelector(getUserLoading)
 
-    if(user)
-        return (
-            <>
-                {isLoading ? <div><Blur /> <Loader /></div> : null}
-                <Parallax parallaxData={ParallaxData} img={ParallaxImg} height='40vh' />
-                <div className='main-app-container'>
-                    <div className="main-app-left">
-                        <Trending detailed={false} />
-                    </div>
-                    <div className="main-app-right">
-                        {/*<Unanswered />*/}
-                    </div>
+    const isLoading = useSelector(getUserLoading)
+    const createQuestionOpened = useSelector(getCreateQuestionOpened)
+    return (
+        <>
+            {isLoading ? <div><Blur /> <Loader /> </div> : null}
+            {createQuestionOpened ? <div><Blur /> <NewQuestion /> </div> : null}
+            <Parallax parallaxData={ParallaxData} img={ParallaxImg} height='40vh' />
+            <div className='main-app-container'>
+                <div className="main-app-left">
+                    <Trending detailed={false} />
                 </div>
-            </>
-        )
-    else
-        nav('/auth')
+                <div className="main-app-right">
+                    {/*<Unanswered />*/}
+                </div>
+            </div>
+        </>
+    )
 
 }
 export default MainApp

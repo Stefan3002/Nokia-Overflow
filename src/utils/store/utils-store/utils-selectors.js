@@ -1,0 +1,1 @@
+export const getCreateQuestionOpened = (state) => state.utils.createQuestionOpened

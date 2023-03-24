@@ -13,6 +13,7 @@ import Divider from "../../divider/divider";
 import {connectWithGoogle} from "../../../utils/firebase/firebase";
 import {useDispatch} from "react-redux";
 import {setUserFinished} from "../../../utils/store/user-store/user-actions";
+import googleIcon from '../../../utils/imgs/app/icons/GoogleIcon.svg'
 const Auth = () => {
     const nav = useNavigate()
     const dispatch = useDispatch()
@@ -46,7 +47,7 @@ const Auth = () => {
                 </div>
                 <div className="auth-right">
                     <h2>Sign-up</h2>
-                    <p onClick={connectWithGoogleFront}>Google</p>
+                    <p onClick={connectWithGoogleFront}><img className='auth-icon' src={googleIcon} alt="Google Log In"/></p>
                     <form onSubmit={createAccount} action="">
                         <SearchInput placeholder='Username' borderSize='2' borderColor='var(--main-color)' />
                         <SearchInput placeholder='Password' borderSize='2' borderColor='var(--main-color)' />

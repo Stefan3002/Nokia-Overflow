@@ -30,10 +30,10 @@
   padding: 0.5rem 0;
 }
 .question-container .question-bottom {
-  padding: 0.1rem;
+  padding: 0.1rem 1.3rem;
   background: whitesmoke;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 .question-container .question-icon {

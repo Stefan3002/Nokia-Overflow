@@ -38,3 +38,6 @@ Badge Icon: https://www.svgrepo.com/svg/33762/trophy
 ReliableIcon: https://www.svgrepo.com/svg/99170/checked
 
 Loader: https://loading.io/css/
+Google: https://www.svgrepo.com/svg/353817/google-icon
+
+CloseIcon: https://www.svgrepo.com/svg/278567/close

@@ -3,8 +3,10 @@ import Question from "../question/question";
 import Button from "../button/button";
 import SearchInput from "../search-input/search-input";
 import {useEffect, useState} from "react";
+import {useDispatch} from "react-redux";
+import {setQuestionOpened} from "../../utils/store/utils-store/utils-actions";
 const Trending = ({detailed}) => {
-
+    const dispatch = useDispatch()
     const trendingQuestions = [
         {
             questionTitle: 'How can I pass the Networks exam?',
@@ -25,7 +27,8 @@ const Trending = ({detailed}) => {
                 'doloremque. Quaerat provident commodi consectetur veniam simi',
             likes: 10,
             dislikes: 5,
-            date: '20.03.2023'
+            date: '20.03.2023',
+            category: 'WEB'
         },
         {
             questionTitle: 'How can I pass the Networks exam?',
@@ -46,7 +49,8 @@ const Trending = ({detailed}) => {
                 'doloremque. Quaerat provident commodi consectetur veniam simi',
             likes: 10,
             dislikes: 5,
-            date: '20.03.2023'
+            date: '20.03.2023',
+            category: 'WEB'
         },
         {
             questionTitle: 'How can I pass the Networks exam?',
@@ -67,7 +71,8 @@ const Trending = ({detailed}) => {
                 'doloremque. Quaerat provident commodi consectetur veniam simi',
             likes: 10,
             dislikes: 5,
-            date: '20.03.2023'
+            date: '20.03.2023',
+            category: 'Network Administration'
         },{
             questionTitle: 'How can I pass the Networks exam?',
             questionContent: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\n' +
@@ -87,7 +92,8 @@ const Trending = ({detailed}) => {
                 'doloremque. Quaerat provident commodi consectetur veniam simi',
             likes: 10,
             dislikes: 5,
-            date: '20.03.2023'
+            date: '20.03.2023',
+            category: 'Software Engineering'
         },
         {
             questionTitle: 'How can I pass the Networks exam?',
@@ -152,6 +158,12 @@ const Trending = ({detailed}) => {
             date: '20.03.2023'
         }
     ]
+
+    const createNewQuestion = () => {
+        dispatch(setQuestionOpened(true))
+    }
+
+
     const [filteredTrendingQuestions, setFilteredTrendingQuestions] = useState(trendingQuestions)
 
     const filterNoks = (event) => {
@@ -163,7 +175,7 @@ const Trending = ({detailed}) => {
             <div className="trending-header">
                 <div className="trending-header-top">
                     <h2>Trending</h2>
-                    <Button text='Create Nok' borderSize='2' borderColor='var(--main-color)' textColor='black' />
+                    <Button clickHandler={createNewQuestion} text='Create Nok' borderSize='2' borderColor='var(--main-color)' textColor='black' />
                 </div>
                 <div className="trending-header-bottom">
                     <SearchInput callback={filterNoks} placeholder='Search noks' borderSize='2' borderColor='var(--main-color)' />
