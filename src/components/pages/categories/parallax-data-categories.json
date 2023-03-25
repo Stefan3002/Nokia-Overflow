@@ -1,7 +1,7 @@
 {
-  "title": "Home",
+  "title": "Categories",
   "color": "whitesmoke",
   "gradientRadius": "10%",
   "gradientIntensity": "1",
-  "callToAction": ""
+  "callToAction": "Discover the available categories"
 }

@@ -3,7 +3,7 @@ html{
 }
 :root {
   --main-color: #26C485;
-
+  --accent-color: #015aff;
 }
 .logo{
   width: 70px

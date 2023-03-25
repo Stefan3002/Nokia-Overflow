@@ -29,7 +29,7 @@ const HomePage = () => {
                 <div className="wrapper">
                     <FAQ />
                 </div>
-                <Parallax img={FooterBanner} parallaxData={parallaxFooterData} showButton={true} buttonText="Let's go!" buttonBorderColor='white' buttonBorderSize='4' buttonBolded={true} height='100vh'  />
+                <Parallax linkTo='/app' img={FooterBanner} parallaxData={parallaxFooterData} showButton={true} buttonText="Let's go!" buttonBorderColor='white' buttonBorderSize='4' buttonBolded={true} height='100vh'  />
                 <div className="wrapper">
                     <Footer />
                 </div>

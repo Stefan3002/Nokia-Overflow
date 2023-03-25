@@ -20,7 +20,7 @@ const MainApp = () => {
         <>
             {isLoading ? <div><Blur /> <Loader /> </div> : null}
             {createQuestionOpened ? <div><Blur /> <NewQuestion /> </div> : null}
-            <Parallax parallaxData={ParallaxData} img={ParallaxImg} height='40vh' />
+            <Parallax linkTo='categories' showButton={true} buttonText='Categories' buttonBorderColor='white' buttonBorderSize='2' parallaxData={ParallaxData} img={ParallaxImg} height='40vh' />
             <div className='main-app-container'>
                 <div className="main-app-left">
                     <Trending detailed={false} />

@@ -1,0 +1,20 @@
+.category-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: var(--main-color);
+  padding: 1.5rem;
+  transition: all 0.2s;
+  border: 3px solid var(--accent-color);
+}
+.category-card-container .category-icon {
+  width: 70px;
+}
+.category-card-container:hover, .category-card-containerfocus {
+  transform: scale(1.1);
+  transition: all 0.2s;
+  background: white;
+}
+
+/*# sourceMappingURL=category-card.css.map */

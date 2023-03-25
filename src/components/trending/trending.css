@@ -9,9 +9,15 @@
   align-items: center;
   gap: 1rem;
 }
+.trending-container .trending-header-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
 @media screen and (max-width: 1100px) {
-  .trending-container .trending-questions {
+  .trending-container .trending-questions, .trending-container .trending-header-bottom {
     flex-direction: column;
   }
 }

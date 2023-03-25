@@ -5,17 +5,14 @@ import closeIcon from '../../utils/imgs/app/icons/CloseIcon.svg'
 import SearchInput from "../search-input/search-input";
 import Button from "../button/button";
 import SelectInput from "../select-input/select-input";
+import categoriesOptionsStub from '../../utils/data-stubs/question-categories.json'
 const NewQuestion = () => {
     const dispatch = useDispatch()
     const closeCreateQuestion = () => {
         dispatch(setQuestionOpened(false))
     }
 
-    const categoriesOptions = [
-        'WEB',
-        'Networks',
-        "Operating Systems"
-    ]
+    const categoriesOptions = categoriesOptionsStub.categoriesOptions
 
     const createQuestion = (event) => {
         event.preventDefault()

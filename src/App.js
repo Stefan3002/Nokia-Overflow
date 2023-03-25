@@ -11,6 +11,7 @@ import {stateListener} from "./utils/firebase/firebase";
 import {setUserError, setUserFinished, setUserStart} from "./utils/store/user-store/user-actions";
 import {useDispatch} from "react-redux";
 import PrivateRoute from "./components/private-route/private-route";
+import Categories from "./components/pages/categories/categories";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path='/app' element={<AppNavigation />} >
                 <Route path='/app' element={<PrivateRoute><MainApp /></PrivateRoute>} />
                 <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>}/>
+                <Route path='categories' element={<PrivateRoute><Categories /></PrivateRoute>}/>
             </Route>
             <Route path='/auth' element={<Auth />} />
             <Route path='/auth/login' element={<AuthLogin />} />

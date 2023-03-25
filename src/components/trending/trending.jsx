@@ -5,6 +5,8 @@ import SearchInput from "../search-input/search-input";
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {setQuestionOpened} from "../../utils/store/utils-store/utils-actions";
+import Filter from "../filter/filter";
+import categoriesDataStub from '../../utils/data-stubs/question-categories.json'
 const Trending = ({detailed}) => {
     const dispatch = useDispatch()
     const trendingQuestions = [
@@ -74,7 +76,7 @@ const Trending = ({detailed}) => {
             date: '20.03.2023',
             category: 'Network Administration'
         },{
-            questionTitle: 'How can I pass the Networks exam?',
+            questionTitle: 'How can I pass the Software Engineering exam?',
             questionContent: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\n' +
                 'molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\n' +
                 'numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\n' +
@@ -159,12 +161,22 @@ const Trending = ({detailed}) => {
         }
     ]
 
+    const categoriesOptions = categoriesDataStub.categoriesOptions
+
     const createNewQuestion = () => {
         dispatch(setQuestionOpened(true))
     }
 
-
     const [filteredTrendingQuestions, setFilteredTrendingQuestions] = useState(trendingQuestions)
+
+    const filterQuestionsByCategory = (event) => {
+        const selectedIndex = event.target.selectedIndex
+        const selectedCategory = event.target[selectedIndex].innerText
+        if(selectedCategory === 'All')
+            setFilteredTrendingQuestions(trendingQuestions)
+        else
+            setFilteredTrendingQuestions(trendingQuestions.filter(question => question.category === selectedCategory))
+    }
 
     const filterNoks = (event) => {
         const targetString = event.target.value
@@ -179,6 +191,7 @@ const Trending = ({detailed}) => {
                 </div>
                 <div className="trending-header-bottom">
                     <SearchInput callback={filterNoks} placeholder='Search noks' borderSize='2' borderColor='var(--main-color)' />
+                    <Filter callback={filterQuestionsByCategory} options={categoriesOptions} />
                 </div>
             </div>
             <div className="trending-questions">
