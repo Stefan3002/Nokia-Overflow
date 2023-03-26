@@ -19,3 +19,10 @@ export const setUserFinished = (user) => {
         payload: user
     }
 }
+
+export const setUserStatus = (status) => {
+    return {
+        type: 'SET_USER_STATUS',
+        payload: status
+    }
+}

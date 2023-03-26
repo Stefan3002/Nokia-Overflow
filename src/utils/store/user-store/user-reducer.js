@@ -1,7 +1,8 @@
 const INITIAL_VALUE = {
     user: null,
     isLoading: false,
-    err: null
+    err: null,
+    status: 'idle'
 }
 
 export const userReducer = (state = INITIAL_VALUE, action) => {
@@ -24,6 +25,11 @@ export const userReducer = (state = INITIAL_VALUE, action) => {
                 isLoading: false,
                 user: null,
                 err: payload
+            }
+        case 'SET_USER_STATUS':
+            return {
+                ...state,
+                status: payload
             }
         default:
             return state

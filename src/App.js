@@ -8,7 +8,7 @@ import Auth from "./components/pages/auth/auth";
 import AuthLogin from "./components/pages/auth-login/auth-login";
 import {useEffect} from "react";
 import {stateListener} from "./utils/firebase/firebase";
-import {setUserError, setUserFinished, setUserStart} from "./utils/store/user-store/user-actions";
+import {setUserError, setUserFinished, setUserStart, setUserStatus} from "./utils/store/user-store/user-actions";
 import {useDispatch} from "react-redux";
 import PrivateRoute from "./components/private-route/private-route";
 import Categories from "./components/pages/categories/categories";
@@ -20,8 +20,10 @@ function App() {
     useEffect(() => {
         stateListener((user) => {
             dispatch(setUserStart())
+            dispatch(setUserStatus('loading'))
             try{
                 dispatch(setUserFinished(user))
+                dispatch(setUserStatus('loaded'))
             }catch (err){
                 dispatch(setUserError(err))
             }
@@ -34,7 +36,7 @@ function App() {
         <Routes>
             <Route index path='/' element={<HomePage />} />
             <Route path='/app' element={<AppNavigation />} >
-                <Route path='/app' element={<PrivateRoute><MainApp /></PrivateRoute>} />
+                <Route index element={<PrivateRoute><MainApp /></PrivateRoute>} />
                 <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>}/>
                 <Route path='categories' element={<PrivateRoute><Categories /></PrivateRoute>}/>
             </Route>
