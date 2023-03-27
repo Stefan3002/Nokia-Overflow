@@ -1,0 +1,21 @@
+.question-opened-container {
+  width: 60%;
+  margin: 0 auto;
+  text-align: justify;
+}
+.question-opened-container .user-info {
+  display: flex;
+  gap: 2.2rem;
+  align-items: center;
+}
+.question-opened-container .question-opened-title {
+  margin: 2rem 0 0 0;
+}
+
+@media screen and (min-width: 2500px) {
+  .question-opened-container {
+    width: 40%;
+  }
+}
+
+/*# sourceMappingURL=question-opened.css.map */

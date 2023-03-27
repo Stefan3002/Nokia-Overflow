@@ -1,7 +1,7 @@
-.profile-image-container {
+.small-profile-image-container {
   border-radius: 50%;
   object-fit: cover;
-  transform: scale(1.5);
+  transform: scale(0.9);
   border: 3px solid var(--main-color);
 }
 

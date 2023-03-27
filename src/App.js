@@ -12,6 +12,7 @@ import {setUserError, setUserFinished, setUserStart, setUserStatus} from "./util
 import {useDispatch} from "react-redux";
 import PrivateRoute from "./components/private-route/private-route";
 import Categories from "./components/pages/categories/categories";
+import QuestionOpened from "./components/pages/question-opened/question-opened";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
                 <Route index element={<PrivateRoute><MainApp /></PrivateRoute>} />
                 <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>}/>
                 <Route path='categories' element={<PrivateRoute><Categories /></PrivateRoute>}/>
+                <Route path='question/:id' element={<PrivateRoute><QuestionOpened /></PrivateRoute>}/>
             </Route>
             <Route path='/auth' element={<Auth />} />
             <Route path='/auth/login' element={<AuthLogin />} />

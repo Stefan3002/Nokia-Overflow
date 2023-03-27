@@ -8,7 +8,7 @@
   animation-duration: 0.2s;
   left: 0;
   background: var(--main-color);
-  color: white;
+  color: black;
   padding: 2rem;
   list-style-type: none;
   display: flex;
@@ -38,8 +38,8 @@
   margin: 0 0 0 1rem;
 }
 .app-navigation-extended-container .app-navigation-bottom li:hover, .app-navigation-extended-container .app-navigation-bottom li:focus {
-  color: black;
-  background: whitesmoke;
+  color: white;
+  background: var(--accent-color);
   transition: all 0.2s;
 }
 .app-navigation-extended-container .app-navigation-icon {

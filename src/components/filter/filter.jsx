@@ -4,7 +4,7 @@ const Filter = ({options, callback}) => {
 
     return (
         <div className='filter-container'>
-            <SelectInput callback={callback} options={options} borderSize='2' borderColor='var(--main-color)' />
+            <SelectInput callback={callback} options={options} borderSize='2' borderColor='var(--accent-color)' />
         </div>
     )
 }
