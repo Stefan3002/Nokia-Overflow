@@ -12,7 +12,10 @@ import Button from "../../button/button";
 import Answers from "../../answers/answers";
 import Editor from "@monaco-editor/react";
 import LikeIcon from "../../../utils/imgs/app/icons/LikeIcon.svg";
+import {useDispatch} from "react-redux";
+import {setLoading} from "../../../utils/store/utils-store/utils-actions";
 const QuestionOpened = () => {
+    const dispatch = useDispatch()
     const {questions} = questionsStub
     const params = useParams()
     const [question, setQuestion] = useState(null)
@@ -21,6 +24,12 @@ const QuestionOpened = () => {
         setQuestion(questions.filter(question => question.questionID === params.id)[0])
     }, [])
 
+    const setLoadingTrue = () => {
+        dispatch(setLoading(true))
+    }
+    const setLoadingFalse = () => {
+        dispatch(setLoading(false))
+    }
 
     if(question) {
         const {likes, dislikes} = question
@@ -50,7 +59,7 @@ const QuestionOpened = () => {
                     </div>
                     <Divider />
                     <p>{question.questionContent}</p>
-                    {question.code ? <Editor height='30vh' defaultValue={question.code} /> : null}
+                    {question.code ? <Editor beforeMount={setLoadingTrue} onMount={setLoadingFalse} height='30vh' defaultValue={question.code} /> : null}
                     <Button marginTop='1rem' text='Add answer' textColor='black' borderColor='var(--accent-color)' borderSize='2' />
                     <Divider />
                     <Answers data={question.answers} />

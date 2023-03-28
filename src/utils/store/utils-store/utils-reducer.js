@@ -1,5 +1,6 @@
 const INITIAL_VALUE = {
-    createQuestionOpened: false
+    createQuestionOpened: false,
+    isLoading: false
 }
 
 export const utilsReducer = (state = INITIAL_VALUE, action) => {
@@ -9,6 +10,11 @@ export const utilsReducer = (state = INITIAL_VALUE, action) => {
             return {
                 ...state,
                 createQuestionOpened: payload
+            }
+        case 'SET_LOADING':
+            return {
+                ...state,
+                isLoading: payload
             }
         default:
             return state

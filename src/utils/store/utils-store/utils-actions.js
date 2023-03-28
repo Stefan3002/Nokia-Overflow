@@ -4,3 +4,10 @@ export const setQuestionOpened = (bool) => {
         payload: bool
     }
 }
+
+export const setLoading= (bool) => {
+    return {
+        type: 'SET_LOADING',
+        payload: bool
+    }
+}

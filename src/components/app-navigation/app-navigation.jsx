@@ -9,15 +9,22 @@ import {setNavOpened} from "../../utils/store/navigation-store/navigation-action
 import {getNavOpened} from "../../utils/store/navigation-store/navigation-selectors";
 import AppNavigationExtended from "../app-navigation-extended/app-navigation-extended";
 import logo from '../../utils/imgs/LogoNokiaOverflow.svg'
+import {getLoading} from "../../utils/store/utils-store/utils-selectors";
+import Blur from "../blur/blur";
+import Loader from "../loader/loader";
+import {getUserLoading} from "../../utils/store/user-store/user-selectors";
 const AppNavigation = () => {
     const navOpened = useSelector(getNavOpened)
     const dispatch = useDispatch()
     const openNav = () => {
         dispatch(setNavOpened(true))
     }
+    const isLoading = useSelector(getUserLoading)
+    const isLoading2 = useSelector(getLoading)
 
     return (
         <>
+            {isLoading2 || isLoading ? <div><Blur /> <Loader /> </div> : null}
             {navOpened ? <AppNavigationExtended /> : null}
             <ul onMouseEnter={openNav} className='app-navigation-container'>
                 <li><img className='logo' src={logo} alt="NK"/></li>
