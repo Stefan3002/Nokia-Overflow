@@ -11,10 +11,47 @@
 .question-opened-container .question-opened-title {
   margin: 2rem 0 0 0;
 }
+.question-opened-container .question-opened-metrics {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.question-opened-container .question-opened-header {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.question-opened-container .question-opened-header .question-likes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+.question-opened-container .question-opened-header .question-icon {
+  width: 40px;
+}
+.question-opened-container .question-opened-header .question-dislikes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+.question-opened-container .question-opened-header .question-dislikes .question-icon {
+  transform: rotate(180deg);
+}
 
 @media screen and (min-width: 2500px) {
   .question-opened-container {
     width: 40%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .question-opened-container {
+    width: 85%;
   }
 }
 

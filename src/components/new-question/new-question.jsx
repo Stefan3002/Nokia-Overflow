@@ -6,8 +6,11 @@ import SearchInput from "../search-input/search-input";
 import Button from "../button/button";
 import SelectInput from "../select-input/select-input";
 import categoriesOptionsStub from '../../utils/data-stubs/question-categories.json'
+import Editor from "@monaco-editor/react";
+import {useState} from "react";
 const NewQuestion = () => {
     const dispatch = useDispatch()
+    const [code, setCode] = useState(undefined)
     const closeCreateQuestion = () => {
         dispatch(setQuestionOpened(false))
     }
@@ -21,9 +24,11 @@ const NewQuestion = () => {
         const selectedIndex = event.target[2].selectedIndex
         const category = event.target[2][selectedIndex].innerText
         const date = Date.now()
+        console.log(code)
     //     SEND TO DB
     //     TODO
     }
+
 
     return (
         <div className='new-question-container'>
@@ -35,6 +40,7 @@ const NewQuestion = () => {
                 <SearchInput placeholder='Title of the Nok' borderColor='black' borderSize='1' />
                 <SearchInput placeholder='Description of the Nok' borderColor='black' borderSize='1' />
                 <SelectInput options={categoriesOptions} borderSize='1' borderColor='black' />
+                <Editor onChange={code => setCode(code)} width='70%' height='50vh' language='javascript' defaultValue='Insert code here.' />
                 <Button type='submit' text='Create Nok' borderSize='1' borderColor='black' textColor='black' />
             </form>
         </div>

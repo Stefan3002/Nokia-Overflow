@@ -10,6 +10,8 @@ import ProfileImage from "../../profile-image/profile-image";
 import SmallProfileImage from "../../small-profile-image/small-profile-image";
 import Button from "../../button/button";
 import Answers from "../../answers/answers";
+import Editor from "@monaco-editor/react";
+import LikeIcon from "../../../utils/imgs/app/icons/LikeIcon.svg";
 const QuestionOpened = () => {
     const {questions} = questionsStub
     const params = useParams()
@@ -21,6 +23,7 @@ const QuestionOpened = () => {
 
 
     if(question) {
+        const {likes, dislikes} = question
         return (
             <>
                 <Parallax dynamicTitle={question.questionTitle} linkTo='categories' showButton={false} parallaxData={ParallaxData} img={ParallaxImg}
@@ -32,10 +35,23 @@ const QuestionOpened = () => {
                         <p>{question.user.displayName}</p>
                     </div>
 
-                    <h2 className='question-opened-title'>{question.questionTitle}</h2>
+                    <div className="question-opened-header">
+                        <h2 className='question-opened-title'>{question.questionTitle}</h2>
+                        <div className="question-opened-metrics">
+                            <div className="question-likes">
+                                <p className='question-likes-text'>{likes}</p>
+                                <img className='question-icon' src={LikeIcon} alt="Likes"/>
+                            </div>
+                            <div className="question-dislikes">
+                                <p className='question-dislikes-text'>{dislikes}</p>
+                                <img className='question-icon dislike-icon' src={LikeIcon} alt="Dislikes"/>
+                            </div>
+                        </div>
+                    </div>
                     <Divider />
                     <p>{question.questionContent}</p>
-                    <Button text='Add answer' textColor='black' borderColor='var(--accent-color)' borderSize='2' />
+                    {question.code ? <Editor height='30vh' defaultValue={question.code} /> : null}
+                    <Button marginTop='1rem' text='Add answer' textColor='black' borderColor='var(--accent-color)' borderSize='2' />
                     <Divider />
                     <Answers data={question.answers} />
                 </div>
