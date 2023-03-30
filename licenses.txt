@@ -47,3 +47,10 @@ Categories Banner: Photo by <a href="https://unsplash.com/@eberhardgross?utm_sou
 
 QuestionOpened Banner:
 Photo by <a href="https://unsplash.com/@fakurian?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Milad Fakurian</a> on <a href="https://unsplash.com/wallpapers/cool/abstract?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+
+Gold Icon: https://www.svgrepo.com/svg/452215/gold-medal
+Bronze Icon: https://www.svgrepo.com/svg/452174/bronze-medal
+Silver Icon: https://www.svgrepo.com/svg/452101/silver-medal
+
+FirstQuestionIcon: https://www.svgrepo.com/svg/286815/question

@@ -13,7 +13,7 @@ import {useDispatch} from "react-redux";
 import PrivateRoute from "./components/private-route/private-route";
 import Categories from "./components/pages/categories/categories";
 import QuestionOpened from "./components/pages/question-opened/question-opened";
-
+import userStub from './utils/data-stubs/user-stub.json'
 
 function App() {
     const dispatch = useDispatch()
@@ -23,7 +23,14 @@ function App() {
             dispatch(setUserStart())
             dispatch(setUserStatus('loading'))
             try{
-                dispatch(setUserFinished(user))
+                // Get userData from DB
+                let userData = null
+                if(user)
+                    userData = {
+                        ...user,
+                        ...userStub
+                    }
+                dispatch(setUserFinished(userData))
                 dispatch(setUserStatus('loaded'))
             }catch (err){
                 dispatch(setUserError(err))

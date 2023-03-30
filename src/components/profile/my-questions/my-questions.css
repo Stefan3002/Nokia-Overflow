@@ -1,0 +1,14 @@
+.my-questions-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem 0 0 0;
+}
+
+@media screen and (max-width: 1100px) {
+  .my-questions-container {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=my-questions.css.map */

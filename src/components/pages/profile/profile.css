@@ -1,6 +1,9 @@
-.profile-container .profile-left {
+.profile-container {
+  text-align: left;
   width: 70%;
   margin: 0 auto;
+}
+.profile-container .profile-left {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -9,6 +12,15 @@
 .profile-container .profile-left .profile-user-name {
   font-size: 1.4rem;
   font-weight: bold;
+}
+.profile-container .profile-my-questions-header {
+  margin: 3rem 0 0 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.profile-container .profile-my-badges-header {
+  margin: 3rem 0 0 0;
 }
 
 /*# sourceMappingURL=profile.css.map */
