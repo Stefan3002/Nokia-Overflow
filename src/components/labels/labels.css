@@ -1,0 +1,15 @@
+.labels-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.labels-container .more-labels-container {
+  width: fit-content;
+  color: white;
+  background: var(--accent-color);
+  border-radius: 10px;
+  padding: 0.1rem 0.3rem;
+}
+
+/*# sourceMappingURL=labels.css.map */

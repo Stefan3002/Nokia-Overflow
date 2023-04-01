@@ -6,8 +6,9 @@ import Divider from "../divider/divider";
 import PinIcon from '../../utils/imgs/app/icons/PinIcon.svg'
 import CategoryIcon from "../category-icon/category-icon";
 import {Link} from "react-router-dom";
+import Labels from "../labels/labels";
 const Question = ({detailed, questionData, animationDelay}) => {
-    const {questionTitle, questionContent, likes, dislikes, date, category, questionID} = questionData
+    const {questionTitle, questionContent, likes, dislikes, date, category, questionID, questionLabels} = questionData
     return (
         <Link to={`/app/question/${questionID}`}>
             <div style={{animationDelay: `${animationDelay}ms`}} className='question-container'>
@@ -24,7 +25,8 @@ const Question = ({detailed, questionData, animationDelay}) => {
                     </div>
                     <div className="question-top-right">
                         <h4>{questionTitle}</h4>
-                        <Divider />
+                        {/*<Divider />*/}
+                        {questionLabels ? <Labels fewItems={true} labels={questionLabels} /> : null}
                         {detailed ? <p className='question-content'>{questionContent.slice(0, questionConfig.questionCharsLimit)} {questionContent.length > questionConfig.questionCharsLimit ? "Read more!" : null}</p> : null}
                     </div>
                 </div>

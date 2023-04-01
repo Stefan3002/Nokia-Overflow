@@ -14,6 +14,8 @@ import Editor from "@monaco-editor/react";
 import LikeIcon from "../../../utils/imgs/app/icons/LikeIcon.svg";
 import {useDispatch} from "react-redux";
 import {setLoading} from "../../../utils/store/utils-store/utils-actions";
+import Label from "../../label/label";
+import Labels from "../../labels/labels";
 const QuestionOpened = () => {
     const dispatch = useDispatch()
     const {questions} = questionsStub
@@ -32,7 +34,7 @@ const QuestionOpened = () => {
     }
 
     if(question) {
-        const {likes, dislikes} = question
+        const {likes, dislikes, questionLabels} = question
         return (
             <>
                 <Parallax dynamicTitle={question.questionTitle} linkTo='categories' showButton={false} parallaxData={ParallaxData} img={ParallaxImg}
@@ -41,7 +43,12 @@ const QuestionOpened = () => {
                 <div className='question-opened-container'>
                     <div className="user-info">
                         <ProfileImage photoURL={question.user.photoURL} />
-                        <p>{question.user.displayName}</p>
+                        <div className="right-user-container">
+                            <p className='user-name'>{question.user.displayName}</p>
+                            <div className="labels-container-scrollable">
+                                <Labels fewItems={false} labels={questionLabels} />
+                            </div>
+                        </div>
                     </div>
 
                     <div className="question-opened-header">

@@ -27,7 +27,11 @@
   background: whitesmoke;
 }
 .question-container .question-top-right {
-  padding: 0.5rem 0;
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .question-container .question-bottom {
   padding: 0.1rem 1.3rem;
@@ -37,7 +41,7 @@
   align-items: center;
 }
 .question-container .question-icon {
-  width: 30px;
+  width: 25px;
   margin: 0 0.5rem;
 }
 .question-container .question-likes {

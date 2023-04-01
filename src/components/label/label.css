@@ -1,0 +1,11 @@
+.label-container {
+  background: var(--accent-color);
+  color: white;
+  border-radius: 10px;
+  padding: 0.1rem 0.3rem;
+}
+.label-container p {
+  margin: 0;
+}
+
+/*# sourceMappingURL=label.css.map */

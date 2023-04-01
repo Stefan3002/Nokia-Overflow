@@ -7,7 +7,8 @@
         "likes": 10,
         "dislikes": 5,
         "date": "20.03.2023",
-        "category": "WEB"
+        "category": "WEB",
+        "questionLabels": ["C++", "Java", "JS", "UVT"]
       },
     {
       "questionID": "2",
@@ -16,7 +17,8 @@
       "likes": 10,
       "dislikes": 5,
       "date": "20.03.2023",
-      "category": "WEB"
+      "category": "WEB",
+      "questionLabels": ["C++", "Java", "JS", "UVT"]
     },
     {
       "questionID": "3",
@@ -25,7 +27,8 @@
       "likes": 10,
       "dislikes": 5,
       "date": "20.03.2023",
-      "category": "WEB"
+      "category": "WEB",
+      "questionLabels": ["C++", "Java", "JS", "UVT"]
     },
     {
       "questionID": "4",
@@ -34,7 +37,8 @@
       "likes": 10,
       "dislikes": 5,
       "date": "20.03.2023",
-      "category": "WEB"
+      "category": "WEB",
+      "questionLabels": ["C++", "Java", "JS", "UVT"]
     },{
       "questionID": "5",
       "questionTitle": "How can I pass the Networks exam?",
@@ -42,7 +46,8 @@
       "likes": 10,
       "dislikes": 5,
       "date": "20.03.2023",
-      "category": "WEB"
+      "category": "WEB",
+      "questionLabels": ["C++", "Java", "JS", "UVT"]
     },
     {
       "questionID": "6",
@@ -55,7 +60,7 @@
       "likes": 10,
       "dislikes": 5,
       "date": "20.03.2023",
-      "category": "WEB",
+      "category": "Network Administration",
       "code": "const codeHighlighter = () => {\n    const targets = document.querySelectorAll('.answer-details-container')\n    for(let target of targets){\n        const targetText = target.innerHTML\n        let result = ''\n        let numberOfTildes = 0\n        for(let ch of targetText){\n            console.log(numberOfTildes)\n            if(ch === '`') {\n                numberOfTildes++\n                if (numberOfTildes === 3)\n                    result += '<span class=\"high-code\">'\n                if (numberOfTildes === 4)\n                    result += '</span>'\n                if(numberOfTildes === 6)\n                    numberOfTildes = 0\n            }\n            else\n                result += ch\n        }\n        console.log(result)\n        target.innerHTML = result\n    }\n}\nexport default codeHighlighter",
       "answers": [
         {
@@ -67,7 +72,8 @@
           "answerTitle": "You can use Redux",
           "answerDetails": "What you can do is create your Redux state and to avoid some weird issues with how React JS. re-renders components you can use a ```status``` state that can take one of the following three values: ```idle, loading or loaded```. This way you can know for sure when the ```useReducer()``` hook has finished fetching your ```user```."
         }
-      ]
+      ],
+      "questionLabels": ["C++", "Java", "JS", "UVT", "WEB", "JavaScript", "React JS", "React"]
     }
 
   ]

@@ -1,10 +1,15 @@
 {
+  "stats": {
+    "questions": 10,
+    "likes": 1231,
+    "dislikes": 123
+  },
   "badges": {
     "gold": [
-
+      "1000+LikesReceivedBadges"
     ],
     "silver" : [
-
+      "firstLikeReceivedBadge"
     ],
     "bronze" : [
       "firstQuestionBadge"
@@ -17,6 +22,7 @@
         "photoURL": "https://lh3.googleusercontent.com/a/AGNmyxbMeXiicGa_22bVlsFzzwsA5O9nBLg4KSFp-u5t=s96-c",
         "displayName": "Stefan Secrieru"
       },
+      "questionLabels": ["C++", "Java", "JS", "UVT", "WEB"],
       "questionTitle": "Create a Private Route component in React JS.",
       "questionContent": "I want to create a private route component in React, but everything I tried did not work. Any ideeas how?",
       "likes": 10,
@@ -59,7 +65,8 @@
           "answerTitle": "You can use Redux",
           "answerDetails": "What you can do is create your Redux state and to avoid some weird issues with how React JS. re-renders components you can use a ```status``` state that can take one of the following three values: ```idle, loading or loaded```. This way you can know for sure when the ```useReducer()``` hook has finished fetching your ```user```."
         }
-      ]
+      ],
+      "questionLabels": ["C++", "Java", "JS", "UVT", "WEB"]
     }
   ]
 }

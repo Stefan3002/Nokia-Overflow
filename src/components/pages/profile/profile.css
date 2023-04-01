@@ -3,24 +3,58 @@
   width: 70%;
   margin: 0 auto;
 }
-.profile-container .profile-left {
+.profile-container .profile-center {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
   gap: 2.2rem;
 }
-.profile-container .profile-left .profile-user-name {
+.profile-container .profile-center .profile-user-name {
   font-size: 1.4rem;
   font-weight: bold;
 }
+.profile-container .profile-my-questions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1.5rem 0 0 0;
+}
 .profile-container .profile-my-questions-header {
-  margin: 3rem 0 0 0;
   display: flex;
   gap: 10px;
   align-items: center;
 }
-.profile-container .profile-my-badges-header {
+.profile-container .profile-top-row {
   margin: 3rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+}
+.profile-container .profile-top-row .stat {
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-container .profile-top-row .stat .stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: crimson;
+}
+.profile-container .profile-top-row .profile-stats-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .profile-top-row {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=profile.css.map */

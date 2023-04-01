@@ -12,20 +12,43 @@ const Profile = () => {
     const userData = useSelector(getUser)
     console.log(userData)
     if(userData) {
-        const {displayName, photoURL, questions, badges} = userData
+        const {displayName, photoURL, questions, badges, stats} = userData
         return (
             <>
                 <Parallax img={ParallaxImg} parallaxData={ParallaxData} height='40vh'/>
                 <div className='profile-container'>
-                    <div className="profile-left">
+                    <div className="profile-center">
                         <ProfileImage photoURL={photoURL} />
                         <p className='profile-user-name'>{displayName}</p>
                     </div>
-                    <div className="profile-my-badges">
-                        <div className="profile-my-badges-header">
-                            <h2 className='profile-section-header'>My Badges</h2>
+                    <div className="profile-top-row">
+                        <div className="profile-my-badges">
+                            <div className="profile-my-badges-header">
+                                <h2 className='profile-section-header'>My Badges</h2>
+                            </div>
+                            <Badges bronzeBadgesNames={badges.bronze} silverBadgesNames={badges.silver} goldBadgesNames={badges.gold}  />
                         </div>
-                        <Badges bronzeBadgesNames={badges.bronze} />
+                        <div className="profile-stats">
+                            <h2 className='profile-section-header'>My awesome stats</h2>
+                            <div className="profile-stats-row">
+                                <div className="questions-stat stat">
+                                    <p className='stat-number'>{stats.questions}</p>
+                                    <h3>Questions asked</h3>
+                                </div>
+                                <div className="likes-stat stat">
+                                    <p className='stat-number'>{stats.likes}</p>
+                                    <h3>Likes received</h3>
+                                </div>
+                                <div className="dislikes-stat stat">
+                                    <p className='stat-number'>{stats.dislikes}</p>
+                                    <h3>Dislikes received</h3>
+                                </div>
+                            </div>
+                            <div className="impact-stat stat">
+                                <p className='stat-number'>{stats.likes - stats.dislikes > 2000 ? 'HIGH' : stats.likes - stats.dislikes > 1000 ? 'MEDIUM' : 'LOW'}</p>
+                                <h3>Impact</h3>
+                            </div>
+                        </div>
                     </div>
                     <div className="profile-my-questions">
                         <div className="profile-my-questions-header">

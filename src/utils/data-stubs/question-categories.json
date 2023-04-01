@@ -1,8 +1,10 @@
 {
   "categoriesOptions": [
     "All",
-    "WEB",
+    "WEB Development",
     "Network Administration",
-    "Software Engineering"
+    "Software Engineering",
+    "Artificial Intelligence",
+    "Big Data"
 ]
 }
