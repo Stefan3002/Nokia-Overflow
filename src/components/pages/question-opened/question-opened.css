@@ -4,8 +4,8 @@
   text-align: justify;
 }
 .question-opened-container .labels-container-scrollable {
-  overflow: scroll;
-  max-width: 50vw;
+    overflow: auto;
+    max-width: 50vw;
 }
 .question-opened-container .right-user-container .user-name {
   margin: 0.5rem 0;
