@@ -5,4 +5,6 @@
 - Add code to your posts in a dedicated editor
 - Pin favourites Noks
 - Receive badges based on your activity on the platform
+- Highlight pieces of code from your answers using three backticks ``` like this```. Let the automatic parser handle the rest for you.
+- PWA compliant
 - More coming...
