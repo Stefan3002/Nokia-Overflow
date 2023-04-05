@@ -54,3 +54,18 @@ Bronze Icon: https://www.svgrepo.com/svg/452174/bronze-medal
 Silver Icon: https://www.svgrepo.com/svg/452101/silver-medal
 
 FirstQuestionIcon: https://www.svgrepo.com/svg/286815/question
+
+WebDev Cover: Photo by <a href="https://unsplash.com/@lautaroandreani?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lautaro Andreani</a> on <a href="https://unsplash.com/photos/UYsBCu9RP3Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Network Cover: Photo by <a href="https://unsplash.com/es/@dulhiier?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nastya Dulhiier</a> on <a href="https://unsplash.com/photos/OKOOGO578eo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Software Engineering:  Photo by <a href="https://unsplash.com/@thisisengineering?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">ThisisEngineering RAEng</a> on <a href="https://unsplash.com/photos/iQqRM0XJvn8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Ai Cover: Photo by <a href="https://unsplash.com/@owenbeard?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Owen Beard</a> on <a href="https://unsplash.com/photos/K21Dn4OVxNw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+
+SecurityLogo: https://www.svgrepo.com/svg/258582/bug
+
+AILogo: https://www.svgrepo.com/svg/285154/robot
+
+BigDataLogo: https://www.svgrepo.com/svg/273724/data-storage
