@@ -5,9 +5,16 @@ export const setQuestionOpened = (bool) => {
     }
 }
 
-export const setLoading= (bool) => {
+export const setLoading = (bool) => {
     return {
         type: 'SET_LOADING',
         payload: bool
+    }
+}
+
+export const setCategoryPreviewImg = (img) => {
+    return {
+        type: 'SET_CATEGORY_PREVIEW_IMG',
+        payload: img
     }
 }

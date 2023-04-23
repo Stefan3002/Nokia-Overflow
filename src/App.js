@@ -14,6 +14,8 @@ import PrivateRoute from "./components/private-route/private-route";
 import Categories from "./components/pages/categories/categories";
 import QuestionOpened from "./components/pages/question-opened/question-opened";
 import userStub from './utils/data-stubs/user-stub.json'
+import QuestionsPage from "./components/pages/questions-page/questions-page";
+import Trending from "./components/trending/trending";
 
 function App() {
     const dispatch = useDispatch()
@@ -22,7 +24,7 @@ function App() {
         stateListener((user) => {
             dispatch(setUserStart())
             dispatch(setUserStatus('loading'))
-            try{
+            try {
                 // Get userData from DB
                 let userData = null
                 if(user)
@@ -46,8 +48,9 @@ function App() {
             <Route path='/app' element={<AppNavigation />} >
                 <Route index element={<PrivateRoute><MainApp /></PrivateRoute>} />
                 <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>}/>
-                <Route path='categories' element={<PrivateRoute><Categories /></PrivateRoute>}/>
-                <Route path='question/:id' element={<PrivateRoute><QuestionOpened /></PrivateRoute>}/>
+                <Route path='categories' element={<PrivateRoute><Categories/></PrivateRoute>}/>
+                <Route path='trending' element={<PrivateRoute><QuestionsPage component={<Trending/>}/></PrivateRoute>}/>
+                <Route path='question/:id' element={<PrivateRoute><QuestionOpened/></PrivateRoute>}/>
             </Route>
             <Route path='/auth' element={<Auth />} />
             <Route path='/auth/login' element={<AuthLogin />} />

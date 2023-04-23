@@ -69,3 +69,5 @@ SecurityLogo: https://www.svgrepo.com/svg/258582/bug
 AILogo: https://www.svgrepo.com/svg/285154/robot
 
 BigDataLogo: https://www.svgrepo.com/svg/273724/data-storage
+
+Questions-parallax-img: Photo by <a href="https://unsplash.com/fr/@spaceboy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Henrik Dønnestad</a> on <a href="https://unsplash.com/wallpapers/cool/abstract?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

@@ -1,6 +1,7 @@
 const INITIAL_VALUE = {
     createQuestionOpened: false,
-    isLoading: false
+    isLoading: false,
+    categoryPreviewImg: undefined
 }
 
 export const utilsReducer = (state = INITIAL_VALUE, action) => {
@@ -15,6 +16,11 @@ export const utilsReducer = (state = INITIAL_VALUE, action) => {
             return {
                 ...state,
                 isLoading: payload
+            }
+        case 'SET_CATEGORY_PREVIEW_IMG':
+            return {
+                ...state,
+                categoryPreviewImg: payload
             }
         default:
             return state

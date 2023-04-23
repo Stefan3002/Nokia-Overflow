@@ -1,0 +1,12 @@
+.category-preview {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0.1rem;
+  margin: 0.2rem;
+  transition: 0.1s all;
+}
+.category-preview:hover, .category-preview:focus {
+  background: var(--main-color);
+  transition: 0.15s all;
+}
+
+/*# sourceMappingURL=category-preview.css.map */

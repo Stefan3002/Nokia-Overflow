@@ -1,0 +1,38 @@
+.categories-preview {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.categories-preview .categories-preview-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.categories-preview-img {
+  width: 50vw;
+  height: 56vh;
+}
+.categories-preview-img img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .categories-preview {
+    width: 60%;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  .categories-preview .categories-preview-img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .categories-preview {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=categories-preview.css.map */
