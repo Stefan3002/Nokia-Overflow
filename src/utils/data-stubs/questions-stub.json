@@ -1,53 +1,75 @@
 {
   "questions": [
-      {
-        "questionID": "1",
-        "questionTitle": "How can I pass the Networks exam?",
-        "questionContent": "lorem",
-        "likes": 10,
-        "dislikes": 5,
-        "date": "20.03.2023",
-        "category": "WEB",
-        "questionLabels": ["C++", "Java", "JS", "UVT"]
+    {
+      "questionID": "6",
+      "user": {
+        "photoURL": "https://lh3.googleusercontent.com/a/AGNmyxbMeXiicGa_22bVlsFzzwsA5O9nBLg4KSFp-u5t=s96-c",
+        "displayName": "Stefan Secrieru"
       },
-    {
-      "questionID": "2",
-      "questionTitle": "How can I pass the Networks exam?",
-      "questionContent": "lorem",
+      "questionTitle": "Create a Private Route component in React JS.",
+      "questionContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper orci quam, quis laoreet enim tempor et. Nullam ut tellus dignissim orci vulputate rutrum sit amet sed felis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi id convallis elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean pellentesque magna ut diam tincidunt imperdiet nec ut tortor. Vivamus mollis commodo dolor, vitae fermentum ante varius ut. In commodo, mauris vestibulum rutrum ultricies, magna ligula blandit sem, quis scelerisque nibh ante ut nulla. Aenean ut tempor mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque urna erat, gravida a lacinia in, dignissim vitae odio. Pellentesque rhoncus non est sed posuere. ",
       "likes": 10,
       "dislikes": 5,
       "date": "20.03.2023",
-      "category": "WEB",
-      "questionLabels": ["C++", "Java", "JS", "UVT"]
+      "category": "Network Administration",
+      "code": "const codeHighlighter = () => {\n    const targets = document.querySelectorAll('.answer-details-container')\n    for(let target of targets){\n        const targetText = target.innerHTML\n        let result = ''\n        let numberOfTildes = 0\n        for(let ch of targetText){\n            console.log(numberOfTildes)\n            if(ch === '`') {\n                numberOfTildes++\n                if (numberOfTildes === 3)\n                    result += '<span class=\"high-code\">'\n                if (numberOfTildes === 4)\n                    result += '</span>'\n                if(numberOfTildes === 6)\n                    numberOfTildes = 0\n            }\n            else\n                result += ch\n        }\n        console.log(result)\n        target.innerHTML = result\n    }\n}\nexport default codeHighlighter",
+      "answers": [
+        {
+          "code": "import './trending.css'\nimport Question from \"../question/question\";\nimport Button from \"../button/button\";\nimport SearchInput from \"../search-input/search-input\";\nimport {useEffect, useState} from \"react\";\nimport {useDispatch} from \"react-redux\";\nimport {setQuestionOpened} from \"../../utils/store/utils-store/utils-actions\";\nimport Filter from \"../filter/filter\";\nimport categoriesDataStub from '../../utils/data-stubs/question-categories.json'\nimport questionsStub from '../../utils/data-stubs/questions-stub.json'\nimport questionOpened from \"../pages/question-opened/question-opened\";\nconst Trending = ({detailed}) => {\n    const dispatch = useDispatch()\n    const trendingQuestions = questionsStub.questions\n\n\n    const categoriesOptions = categoriesDataStub.categoriesOptions\n\n    const createNewQuestion = () => {\n        dispatch(setQuestionOpened(true))\n    }\n\n    const [filteredTrendingQuestions, setFilteredTrendingQuestions] = useState(trendingQuestions)\n\n    const filterQuestionsByCategory = (event) => {\n        const selectedIndex = event.target.selectedIndex\n        const selectedCategory = event.target[selectedIndex].innerText\n        if(selectedCategory === 'All')\n            setFilteredTrendingQuestions(trendingQuestions)\n        else\n            setFilteredTrendingQuestions(trendingQuestions.filter(question => question.category === selectedCategory))\n    }\n\n    const filterNoks = (event) => {\n        const targetString = event.target.value\n        setFilteredTrendingQuestions(trendingQuestions.filter(question => question.questionTitle.toLowerCase().includes(targetString.toLowerCase())))\n    }\n    return (\n        <div className='trending-container'>\n            <div className=\"trending-header\">\n                <div className=\"trending-header-top\">\n                    <h2>Trending</h2>\n                    <Button clickHandler={createNewQuestion} text='Create Nok' borderSize='2' borderColor='var(--accent-color)' textColor='black' />\n                </div>\n                <div className=\"trending-header-bottom\">\n                    <SearchInput callback={filterNoks} placeholder='Search noks' borderSize='2' borderColor='var(--accent-color)' />\n                    <Filter callback={filterQuestionsByCategory} options={categoriesOptions} />\n                </div>\n            </div>\n            <div className=\"trending-questions\">\n                {filteredTrendingQuestions.map((trendingQuestion, idx) => {\n                    return <Question detailed={detailed} questionData={trendingQuestion} animationDelay={idx * 100} />\n                })}\n            </div>\n\n        </div>\n    )\n}\nexport default Trending",
+          "user": {
+            "photoURL": "https://lh3.googleusercontent.com/a/AGNmyxbMeXiicGa_22bVlsFzzwsA5O9nBLg4KSFp-u5t=s96-c",
+            "displayName": "Stefan Secrieru"
+          },
+          "answerTitle": "You can use Redux",
+          "answerDetails": "What you can do is create your Redux state and to avoid some weird issues with how React JS. re-renders components you can use a ```status``` state that can take one of the following three values: ```idle, loading or loaded```. This way you can know for sure when the ```useReducer()``` hook has finished fetching your ```user```."
+        }
+      ],
+      "questionLabels": [
+        "C++",
+        "Java",
+        "JS",
+        "UVT",
+        "WEB",
+        "JavaScript",
+        "React JS",
+        "React"
+      ]
     },
     {
-      "questionID": "3",
-      "questionTitle": "How can I pass the Networks exam?",
-      "questionContent": "lorem",
+      "questionID": "6",
+      "user": {
+        "uid": "asdas",
+        "photoURL": "https://lh3.googleusercontent.com/a/AGNmyxbMeXiicGa_22bVlsFzzwsA5O9nBLg4KSFp-u5t=s96-c",
+        "displayName": "Stefan Secrieru"
+      },
+      "questionTitle": "Create a Private Route component in React JS.",
+      "questionContent": "I want to create a private route component in React, but everything I tried did not work. Any ideeas how?",
       "likes": 10,
       "dislikes": 5,
       "date": "20.03.2023",
-      "category": "WEB",
-      "questionLabels": ["C++", "Java", "JS", "UVT"]
-    },
-    {
-      "questionID": "4",
-      "questionTitle": "How can I pass the Networks exam?",
-      "questionContent": "lorem",
-      "likes": 10,
-      "dislikes": 5,
-      "date": "20.03.2023",
-      "category": "WEB",
-      "questionLabels": ["C++", "Java", "JS", "UVT"]
-    },{
-      "questionID": "5",
-      "questionTitle": "How can I pass the Networks exam?",
-      "questionContent": "lorem",
-      "likes": 10,
-      "dislikes": 5,
-      "date": "20.03.2023",
-      "category": "WEB",
-      "questionLabels": ["C++", "Java", "JS", "UVT"]
+      "category": "Network Administration",
+      "code": "const codeHighlighter = () => {\n    const targets = document.querySelectorAll('.answer-details-container')\n    for(let target of targets){\n        const targetText = target.innerHTML\n        let result = ''\n        let numberOfTildes = 0\n        for(let ch of targetText){\n            console.log(numberOfTildes)\n            if(ch === '`') {\n                numberOfTildes++\n                if (numberOfTildes === 3)\n                    result += '<span class=\"high-code\">'\n                if (numberOfTildes === 4)\n                    result += '</span>'\n                if(numberOfTildes === 6)\n                    numberOfTildes = 0\n            }\n            else\n                result += ch\n        }\n        console.log(result)\n        target.innerHTML = result\n    }\n}\nexport default codeHighlighter",
+      "answers": [
+        {
+          "code": "import './trending.css'\nimport Question from \"../question/question\";\nimport Button from \"../button/button\";\nimport SearchInput from \"../search-input/search-input\";\nimport {useEffect, useState} from \"react\";\nimport {useDispatch} from \"react-redux\";\nimport {setQuestionOpened} from \"../../utils/store/utils-store/utils-actions\";\nimport Filter from \"../filter/filter\";\nimport categoriesDataStub from '../../utils/data-stubs/question-categories.json'\nimport questionsStub from '../../utils/data-stubs/questions-stub.json'\nimport questionOpened from \"../pages/question-opened/question-opened\";\nconst Trending = ({detailed}) => {\n    const dispatch = useDispatch()\n    const trendingQuestions = questionsStub.questions\n\n\n    const categoriesOptions = categoriesDataStub.categoriesOptions\n\n    const createNewQuestion = () => {\n        dispatch(setQuestionOpened(true))\n    }\n\n    const [filteredTrendingQuestions, setFilteredTrendingQuestions] = useState(trendingQuestions)\n\n    const filterQuestionsByCategory = (event) => {\n        const selectedIndex = event.target.selectedIndex\n        const selectedCategory = event.target[selectedIndex].innerText\n        if(selectedCategory === 'All')\n            setFilteredTrendingQuestions(trendingQuestions)\n        else\n            setFilteredTrendingQuestions(trendingQuestions.filter(question => question.category === selectedCategory))\n    }\n\n    const filterNoks = (event) => {\n        const targetString = event.target.value\n        setFilteredTrendingQuestions(trendingQuestions.filter(question => question.questionTitle.toLowerCase().includes(targetString.toLowerCase())))\n    }\n    return (\n        <div className='trending-container'>\n            <div className=\"trending-header\">\n                <div className=\"trending-header-top\">\n                    <h2>Trending</h2>\n                    <Button clickHandler={createNewQuestion} text='Create Nok' borderSize='2' borderColor='var(--accent-color)' textColor='black' />\n                </div>\n                <div className=\"trending-header-bottom\">\n                    <SearchInput callback={filterNoks} placeholder='Search noks' borderSize='2' borderColor='var(--accent-color)' />\n                    <Filter callback={filterQuestionsByCategory} options={categoriesOptions} />\n                </div>\n            </div>\n            <div className=\"trending-questions\">\n                {filteredTrendingQuestions.map((trendingQuestion, idx) => {\n                    return <Question detailed={detailed} questionData={trendingQuestion} animationDelay={idx * 100} />\n                })}\n            </div>\n\n        </div>\n    )\n}\nexport default Trending",
+          "user": {
+            "photoURL": "https://lh3.googleusercontent.com/a/AGNmyxbMeXiicGa_22bVlsFzzwsA5O9nBLg4KSFp-u5t=s96-c",
+            "displayName": "Stefan Secrieru"
+          },
+          "answerTitle": "You can use Redux",
+          "answerDetails": "What you can do is create your Redux state and to avoid some weird issues with how React JS. re-renders components you can use a ```status``` state that can take one of the following three values: ```idle, loading or loaded```. This way you can know for sure when the ```useReducer()``` hook has finished fetching your ```user```."
+        }
+      ],
+      "questionLabels": [
+        "C++",
+        "Java",
+        "JS",
+        "UVT",
+        "WEB",
+        "JavaScript",
+        "React JS",
+        "React"
+      ]
     },
     {
       "questionID": "6",

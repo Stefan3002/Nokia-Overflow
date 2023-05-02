@@ -49,7 +49,8 @@ function App() {
                 <Route index element={<PrivateRoute><MainApp /></PrivateRoute>} />
                 <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>}/>
                 <Route path='categories' element={<PrivateRoute><Categories/></PrivateRoute>}/>
-                <Route path='trending' element={<PrivateRoute><QuestionsPage component={<Trending/>}/></PrivateRoute>}/>
+                <Route path='trending'
+                       element={<PrivateRoute><QuestionsPage component={<Trending detailed={true}/>}/></PrivateRoute>}/>
                 <Route path='question/:id' element={<PrivateRoute><QuestionOpened/></PrivateRoute>}/>
             </Route>
             <Route path='/auth' element={<Auth />} />
