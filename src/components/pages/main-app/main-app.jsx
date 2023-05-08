@@ -11,7 +11,7 @@ import CategoriesPreview from "../../categories-preview/categories-preview";
 const MainApp = () => {
 
 
-
+    console.log("ACIIA SUNT!!!")
     const createQuestionOpened = useSelector(getCreateQuestionOpened)
     return (
         <>

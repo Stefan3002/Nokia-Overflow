@@ -1,0 +1,16 @@
+.error-modal-container {
+  z-index: 11;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--main-color);
+  min-width: 50vw;
+  min-height: 50vh;
+}
+.error-modal-container .error-header {
+  background: crimson;
+  padding: 1rem;
+}
+
+/*# sourceMappingURL=error-modal.css.map */

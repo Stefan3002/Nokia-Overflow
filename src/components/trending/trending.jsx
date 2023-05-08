@@ -3,25 +3,44 @@ import Question from "../question/question";
 import Button from "../button/button";
 import SearchInput from "../search-input/search-input";
 import {useEffect, useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setQuestionOpened} from "../../utils/store/utils-store/utils-actions";
 import Filter from "../filter/filter";
-import categoriesDataStub from '../../utils/data-stubs/question-categories.json'
-import questionsStub from '../../utils/data-stubs/questions-stub.json'
-import questionOpened from "../pages/question-opened/question-opened";
+import {useHttpReq} from "../../utils/scripts/fetches/fetches";
+import {getCreateQuestionOpened} from "../../utils/store/utils-store/utils-selectors";
+import NewQuestion from "../new-question/new-question";
+
 const Trending = ({detailed}) => {
     const dispatch = useDispatch()
-    const trendingQuestions = questionsStub.questions
+    const sendRequest = useHttpReq()
 
+    const createQuestion = useSelector(getCreateQuestionOpened)
 
-    const categoriesOptions = categoriesDataStub.categoriesOptions
+    const [trendingQuestions, setTrendingQuestions] = useState([])
+    const [categoriesOptions, setCategoriesOptions] = useState([])
+
+    useEffect(() => {
+        (async () => {
+            const questions = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/0/10`)
+            setTrendingQuestions(questions.data)
+            setFilteredTrendingQuestions(questions.data)
+            console.log('Questions', trendingQuestions)
+        })()
+    }, [])
+
+    useEffect(() => {
+        (async () => {
+            const categories = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/categories`)
+            setCategoriesOptions(categories.data)
+        })()
+    }, [])
 
     const createNewQuestion = () => {
         dispatch(setQuestionOpened(true))
     }
 
     const [filteredTrendingQuestions, setFilteredTrendingQuestions] = useState(trendingQuestions)
-
+    console.log('filtered ones', filteredTrendingQuestions)
     const filterQuestionsByCategory = (event) => {
         const selectedIndex = event.target.selectedIndex
         const selectedCategory = event.target[selectedIndex].innerText
@@ -37,6 +56,7 @@ const Trending = ({detailed}) => {
     }
     return (
         <div className='trending-container'>
+            {createQuestion && <NewQuestion/>}
             <div className="trending-header">
                 <div className="trending-header-top">
                     <h2>Trending</h2>
@@ -48,8 +68,8 @@ const Trending = ({detailed}) => {
                 </div>
             </div>
             <div className="trending-questions">
-                {filteredTrendingQuestions.map((trendingQuestion, idx) => {
-                    return <Question detailed={detailed} questionData={trendingQuestion} animationDelay={idx * 100} />
+                {filteredTrendingQuestions && filteredTrendingQuestions.map((trendingQuestion, idx) => {
+                    return <Question detailed={detailed} questionData={trendingQuestion} animationDelay={idx * 100}/>
                 })}
             </div>
 

@@ -12,11 +12,15 @@ import checkIcon from '../../../utils/imgs/app/icons/CheckIcon.svg'
 import Divider from "../../divider/divider";
 import {connectWithGoogle} from "../../../utils/firebase/firebase";
 import {useDispatch} from "react-redux";
-import {setUserFinished} from "../../../utils/store/user-store/user-actions";
+import {setUserFinished, setUserStart, setUserStatus} from "../../../utils/store/user-store/user-actions";
 import googleIcon from '../../../utils/imgs/app/icons/GoogleIcon.svg'
+import {useHttpReq} from "../../../utils/scripts/fetches/fetches";
+import {setIsPoppedUp, setPopUpMessage} from "../../../utils/store/utils-store/utils-actions";
+
 const Auth = () => {
     const nav = useNavigate()
     const dispatch = useDispatch()
+    const sendRequest = useHttpReq()
     const createAccount = (event) => {
         event.preventDefault()
         nav('/app')
@@ -24,8 +28,48 @@ const Auth = () => {
     const connectWithGoogleFront = async () => {
         const user = await connectWithGoogle()
         dispatch(setUserFinished(user.user))
-    //     Send user to DB
-    //     TODO
+
+        // Get the relevant info
+        const createdUser = {
+            uid: user.user.uid,
+            displayName: user.user.displayName,
+            email: user.user.email,
+            photoURL: user.user.photoURL
+        }
+        // Get the user to see if it already exists in the DB
+        let alreadyCreated = false;
+        let userData = undefined
+
+        userData = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users/${user.user.uid}`, "GET", null, true)
+        if (userData)
+            alreadyCreated = true
+        console.log('OKIKDOKI', userData, alreadyCreated)
+        if (!alreadyCreated)
+            // Send the user to the DB
+            try {
+                const res = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users`, 'POST', JSON.stringify(createdUser))
+                console.log('This is what serve returned', res)
+            } catch (err) {
+                // TODO
+                // Create an error modal
+                console.log(err)
+            }
+
+        console.log('HELLO!', createdUser, alreadyCreated)
+
+        // Get the data from the DB now.
+        if (!alreadyCreated)
+            try {
+                dispatch(setUserStart())
+                dispatch(setUserStatus('loading'))
+                userData = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users/${user.user.uid}`)
+                dispatch(setUserFinished(userData))
+                dispatch(setUserStatus('loaded'))
+            } catch (err) {
+                console.log(err)
+            }
+        dispatch(setIsPoppedUp(true))
+        dispatch(setPopUpMessage(`Howdy, ${userData.displayName}`))
         nav('/app')
     }
 

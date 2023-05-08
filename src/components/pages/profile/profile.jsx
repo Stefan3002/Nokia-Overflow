@@ -8,6 +8,7 @@ import ProfileImage from "../../profile-image/profile-image";
 import MyQuestions from "../../profile/my-questions/my-questions";
 import Button from "../../button/button";
 import Badges from "../../profile/badges/badges";
+
 const Profile = () => {
     const userData = useSelector(getUser)
     console.log(userData)
@@ -59,7 +60,6 @@ const Profile = () => {
                     </div>
                 </div>
             </>
-
         )
     }
     else

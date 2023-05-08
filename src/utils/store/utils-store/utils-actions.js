@@ -18,3 +18,29 @@ export const setCategoryPreviewImg = (img) => {
         payload: img
     }
 }
+export const setIsError = (bool) => {
+    return {
+        type: 'SET_IS_ERROR',
+        payload: bool
+    }
+}
+
+export const setErrorMessage = (msg) => {
+    return {
+        type: 'SET_ERROR_MESSAGE',
+        payload: msg
+    }
+}
+
+export const setIsPoppedUp = (bool) => {
+    return {
+        type: 'SET_IS_POPPED_UP',
+        payload: bool
+    }
+}
+export const setPopUpMessage = (msg) => {
+    return {
+        type: 'SET_POP_UP_MESSAGE',
+        payload: msg
+    }
+}

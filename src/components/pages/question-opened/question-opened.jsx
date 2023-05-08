@@ -7,23 +7,27 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router";
 import Divider from "../../divider/divider";
 import ProfileImage from "../../profile-image/profile-image";
-import SmallProfileImage from "../../small-profile-image/small-profile-image";
 import Button from "../../button/button";
 import Answers from "../../answers/answers";
 import Editor from "@monaco-editor/react";
 import LikeIcon from "../../../utils/imgs/app/icons/LikeIcon.svg";
 import {useDispatch} from "react-redux";
 import {setLoading} from "../../../utils/store/utils-store/utils-actions";
-import Label from "../../label/label";
 import Labels from "../../labels/labels";
+import {useHttpReq} from "../../../utils/scripts/fetches/fetches";
+
 const QuestionOpened = () => {
     const dispatch = useDispatch()
     const {questions} = questionsStub
     const params = useParams()
     const [question, setQuestion] = useState(null)
+    const sendRequest = useHttpReq()
 
     useEffect(() => {
-        setQuestion(questions.filter(question => question.questionID === params.id)[0])
+        (async () => {
+            const questionData = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${params.id}`)
+            setQuestion(questionData)
+        })()
     }, [])
 
     const setLoadingTrue = () => {

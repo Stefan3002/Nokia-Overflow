@@ -1,13 +1,15 @@
 .new-question-container {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 11;
-  background: var(--main-color);
-  padding: 1rem;
-  min-width: 70vw;
-  min-height: 70vh;
+    z-index: 100;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    overflow: auto;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    background: var(--main-color);
+    padding: 1rem;
+    min-width: 70vw;
+    max-height: 70vh;
 }
 .new-question-container .new-question-icon {
   width: 50px;
