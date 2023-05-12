@@ -2,7 +2,6 @@ import './question-opened.css'
 import Parallax from "../../landing-page/parallax/parallax";
 import ParallaxData from "./parallax-data-question-opened.json";
 import ParallaxImg from "../../../utils/imgs/app/Headers/QuestionOpenedBanner.jpg";
-import questionsStub from '../../../utils/data-stubs/questions-stub.json'
 import {useEffect, useState} from "react";
 import {useParams} from "react-router";
 import Divider from "../../divider/divider";
@@ -12,13 +11,12 @@ import Answers from "../../answers/answers";
 import Editor from "@monaco-editor/react";
 import LikeIcon from "../../../utils/imgs/app/icons/LikeIcon.svg";
 import {useDispatch} from "react-redux";
-import {setLoading} from "../../../utils/store/utils-store/utils-actions";
+import {setAddAnswerOpened, setLoading, setOpenedQuestionId} from "../../../utils/store/utils-store/utils-actions";
 import Labels from "../../labels/labels";
 import {useHttpReq} from "../../../utils/scripts/fetches/fetches";
 
 const QuestionOpened = () => {
     const dispatch = useDispatch()
-    const {questions} = questionsStub
     const params = useParams()
     const [question, setQuestion] = useState(null)
     const sendRequest = useHttpReq()
@@ -37,11 +35,18 @@ const QuestionOpened = () => {
         dispatch(setLoading(false))
     }
 
-    if(question) {
+    const openAddAnswer = () => {
+        dispatch(setAddAnswerOpened(true))
+        dispatch(setOpenedQuestionId(params.id))
+    }
+
+
+    if (question) {
         const {likes, dislikes, questionLabels} = question
         return (
             <>
-                <Parallax dynamicTitle={question.questionTitle} linkTo='categories' showButton={false} parallaxData={ParallaxData} img={ParallaxImg}
+                <Parallax dynamicTitle={question.questionTitle} linkTo='categories' showButton={false}
+                          parallaxData={ParallaxData} img={ParallaxImg}
                           height='40vh'/>
 
                 <div className='question-opened-container'>
@@ -71,8 +76,9 @@ const QuestionOpened = () => {
                     <Divider />
                     <p>{question.questionContent}</p>
                     {question.code ? <Editor beforeMount={setLoadingTrue} onMount={setLoadingFalse} height='30vh' defaultValue={question.code} /> : null}
-                    <Button marginTop='1rem' text='Add answer' textColor='black' borderColor='var(--accent-color)' borderSize='2' />
-                    <Divider />
+                    <Button marginTop='1rem' text='Add answer' textColor='black' borderColor='var(--accent-color)'
+                            borderSize='2' clickHandler={openAddAnswer}/>
+                    <Divider/>
                     <Answers data={question.answers} />
                 </div>
             </>

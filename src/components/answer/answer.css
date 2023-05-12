@@ -3,5 +3,9 @@
   align-items: center;
   gap: 0.5rem;
 }
+.answer-container .answer-icon {
+  width: 40px;
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=answer.css.map */

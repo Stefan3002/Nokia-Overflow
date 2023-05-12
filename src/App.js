@@ -16,18 +16,32 @@ import QuestionOpened from "./components/pages/question-opened/question-opened";
 import QuestionsPage from "./components/pages/questions-page/questions-page";
 import Trending from "./components/trending/trending";
 import {useHttpReq} from "./utils/scripts/fetches/fetches";
-import {getErrorMessage, getIsError, getIsPoppedUp, getPopUpMessage} from "./utils/store/utils-store/utils-selectors";
+import {
+    getCreateAnswerOpened,
+    getCreateQuestionOpened,
+    getErrorMessage,
+    getIsError,
+    getIsPoppedUp,
+    getPopUpMessage
+} from "./utils/store/utils-store/utils-selectors";
 import ErrorModal from "./components/error-modal/error-modal";
 import Blur from "./components/blur/blur";
 import PopUp from "./components/pop-up/pop-up";
+import NewQuestion from "./components/new-question/new-question";
+import NewAnswer from "./components/new-answer/new-answer";
+import ChangeUserInfoModal from "./components/change-user-info-modal/change-user-info-modal";
+import {getChangeUserInfoOpened} from "./utils/store/user-store/user-selectors";
 
 function App() {
     const isError = useSelector(getIsError)
     const errorMessage = useSelector(getErrorMessage)
     const isPoppedUp = useSelector(getIsPoppedUp)
     const popUpMessage = useSelector(getPopUpMessage)
+    const addAnswer = useSelector(getCreateAnswerOpened)
     const dispatch = useDispatch()
     const sendRequest = useHttpReq()
+    const createQuestion = useSelector(getCreateQuestionOpened)
+    const changeInfoOpened = useSelector(getChangeUserInfoOpened)
     useEffect(() => {
         stateListener((user) => {
             (async () => {
@@ -54,15 +68,23 @@ function App() {
           <>
               {isError && <> <Blur/><ErrorModal errorMessage={errorMessage}/> </>}
               {isPoppedUp && <PopUp text={popUpMessage}/>}
+              {createQuestion && <><Blur/> <NewQuestion/> </>}
+              {addAnswer && <><Blur/> <NewAnswer/> </>}
+              {changeInfoOpened && <> <Blur/><ChangeUserInfoModal/> < />}
               <Routes>
                   <Route index path='/' element={<HomePage/>}/>
                   <Route path='/app' element={<AppNavigation/>}>
                       <Route index element={<PrivateRoute><MainApp/></PrivateRoute>}/>
                       <Route path='profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
                       <Route path='categories' element={<PrivateRoute><Categories/></PrivateRoute>}/>
+                      <Route path='trending/:category'
+                             element={<PrivateRoute><QuestionsPage
+                                 component={<Trending detailed={true}/>}/></PrivateRoute>}>
+                      </Route>
                       <Route path='trending'
                              element={<PrivateRoute><QuestionsPage
-                                 component={<Trending detailed={true}/>}/></PrivateRoute>}/>
+                                 component={<Trending detailed={true}/>}/></PrivateRoute>}>
+                      </Route>
                       <Route path='question/:id' element={<PrivateRoute><QuestionOpened/></PrivateRoute>}/>
                   </Route>
                   <Route path='/auth' element={<Auth/>}/>

@@ -5,3 +5,5 @@ export const getIsError = (state) => state.utils.isError
 export const getErrorMessage = (state) => state.utils.errorMessage
 export const getPopUpMessage = (state) => state.utils.popUpMessage
 export const getIsPoppedUp = (state) => state.utils.isPoppedUp
+export const getCreateAnswerOpened = (state) => state.utils.addAnswerOpened
+export const getOpenedQuestionId = (state) => state.utils.openedQuestionId

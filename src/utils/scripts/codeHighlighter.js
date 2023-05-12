@@ -5,7 +5,6 @@ const codeHighlighter = () => {
         let result = ''
         let numberOfTildes = 0
         for(let ch of targetText){
-            console.log(numberOfTildes)
             if(ch === '`') {
                 numberOfTildes++
                 if (numberOfTildes === 3)
@@ -18,7 +17,6 @@ const codeHighlighter = () => {
             else
                 result += ch
         }
-        console.log(result)
         target.innerHTML = result
     }
 }

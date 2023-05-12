@@ -8,8 +8,10 @@ import SoftImg from '../../utils/imgs/SoftwareEngCover.jpg'
 import AIImg from '../../utils/imgs/AICover.jpg'
 import BigDataImg from '../../utils/imgs/BigDataCover.jpg'
 import SecImg from '../../utils/imgs/SecurityCover.jpg'
+import {useNavigate} from "react-router";
 
 const CategoryPreview = ({data}) => {
+    const nav = useNavigate()
 
     const [targetImg, setTargetImg] = useState(undefined)
     useEffect(() => {
@@ -41,9 +43,12 @@ const CategoryPreview = ({data}) => {
     const changeCategoryPreviewImg = () => {
         dispatch(setCategoryPreviewImg(targetImg))
     }
+    const getCategoryQuestions = async () => {
+        nav(`/app/trending/${data}`)
+    }
 
     return (
-        <div onMouseEnter={changeCategoryPreviewImg} className='category-preview'>
+        <div onClick={getCategoryQuestions} onMouseEnter={changeCategoryPreviewImg} className='category-preview'>
             <p>{data}</p>
         </div>
     )

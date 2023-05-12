@@ -1,5 +1,6 @@
 import './labels.css'
 import Label from "../label/label";
+
 const Labels = ({labels, fewItems}) => {
     return (
         <div className='labels-container'>
@@ -7,7 +8,7 @@ const Labels = ({labels, fewItems}) => {
                 labels.map((label, idx) => {
                     if(fewItems){
                         if(idx < 3)
-                            return <Label labelData={label.slice(0, 7)} />
+                            return <Label labelData={label.slice(0, 7)}/>
                     }
                     else
                         return <Label labelData={label.slice(0, 12)} />

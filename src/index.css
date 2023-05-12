@@ -2,8 +2,9 @@ html{
   scroll-behavior: smooth;
 }
 :root {
-  --main-color: whitesmoke;
-  --accent-color: #2a2828;
+    --main-color: whitesmoke;
+    --accent-color: #2a2828;
+    --err-color: crimson;
 }
 .logo{
   width: 70px

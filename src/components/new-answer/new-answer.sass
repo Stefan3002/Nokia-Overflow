@@ -1,0 +1,34 @@
+.new-answer-container
+  z-index: 100
+  position: fixed
+  left: 50%
+  top: 50%
+  overflow: auto
+  transform: translate(-50%, -50%)
+  z-index: 11
+  background: var(--main-color)
+  padding: 1rem
+  min-width: 70vw
+  max-height: 70vh
+
+  .new-answer-icon
+    width: 50px
+    cursor: pointer
+    transition: all .2s
+
+    &:focus, &:hover
+      transform: scale(1.2)
+      transition: all .2s
+      background: red
+
+  .new-answer-header
+    display: flex
+    justify-content: right
+    align-items: center
+
+  .new-answer-forms
+    display: flex
+    gap: 10px
+    flex-direction: column
+    justify-content: center
+    align-items: center

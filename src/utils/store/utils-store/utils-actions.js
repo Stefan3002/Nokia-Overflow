@@ -44,3 +44,17 @@ export const setPopUpMessage = (msg) => {
         payload: msg
     }
 }
+
+export const setAddAnswerOpened = (bool) => {
+    return {
+        type: 'SET_ADD_ANSWER_OPENED',
+        payload: bool
+    }
+}
+
+export const setOpenedQuestionId = (id) => {
+    return {
+        type: 'SET_OPENED_QUESTION_ID',
+        payload: id
+    }
+}

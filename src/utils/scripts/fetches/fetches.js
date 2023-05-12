@@ -1,11 +1,17 @@
 import {useDispatch} from "react-redux";
-import {setErrorMessage, setIsError, setLoading} from "../../store/utils-store/utils-actions";
+import {
+    setErrorMessage,
+    setIsError,
+    setIsPoppedUp,
+    setLoading,
+    setPopUpMessage
+} from "../../store/utils-store/utils-actions";
 import {useCallback} from "react";
 
 export const useHttpReq = () => {
     const dispatch = useDispatch()
     const sendRequest = useCallback(
-        async (URL, method = 'GET', body = null, silentFail = false) => {
+        async (URL, method = 'GET', body = null, silentFail = false, silentSuccess = true, confirmationMessage = 'Success!') => {
             dispatch(setLoading(true))
             try {
                 const res = await fetch(URL, {
@@ -22,6 +28,11 @@ export const useHttpReq = () => {
                 if (!res.ok)
                     throw new Error(response.error)
                 else {
+                    if (!silentSuccess) {
+                        dispatch(setIsPoppedUp(true))
+                        dispatch(setPopUpMessage(confirmationMessage))
+                        window.location.reload(true)
+                    }
                     return response
                 }
             } catch (err) {

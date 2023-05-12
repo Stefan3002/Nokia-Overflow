@@ -15,4 +15,5 @@ The repo with the back-end will be added at a later time.
 - Highlight pieces of code from your answers using three backticks ``` like this```. Let the automatic parser handle the
   rest for you.
 - PWA compliant
+- Lazy loading for questions to increase performance.
 - More coming...

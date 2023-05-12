@@ -2,25 +2,32 @@ import './profile.css'
 import Parallax from "../../landing-page/parallax/parallax";
 import ParallaxImg from '../../../utils/imgs/app/Headers/ProfileBanner.jpg'
 import ParallaxData from './parallax-data-profile.json'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getUser} from "../../../utils/store/user-store/user-selectors";
 import ProfileImage from "../../profile-image/profile-image";
 import MyQuestions from "../../profile/my-questions/my-questions";
 import Button from "../../button/button";
 import Badges from "../../profile/badges/badges";
+import {setChangeUserInfo} from "../../../utils/store/user-store/user-actions";
 
 const Profile = () => {
     const userData = useSelector(getUser)
-    console.log(userData)
-    if(userData) {
+    const dispatch = useDispatch()
+
+    const openChangeUserModal = () => {
+        dispatch(setChangeUserInfo(true))
+    }
+
+    if (userData) {
         const {displayName, photoURL, questions, badges, stats} = userData
         return (
             <>
                 <Parallax img={ParallaxImg} parallaxData={ParallaxData} height='40vh'/>
                 <div className='profile-container'>
                     <div className="profile-center">
-                        <ProfileImage photoURL={photoURL} />
+                        <ProfileImage photoURL={photoURL}/>
                         <p className='profile-user-name'>{displayName}</p>
+                        <p onClick={openChangeUserModal}>Change</p>
                     </div>
                     <div className="profile-top-row">
                         <div className="profile-my-badges">

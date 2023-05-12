@@ -12,9 +12,10 @@ import imgBigData from "../../utils/imgs/landing-page/smalls/BigData.svg";
 import imgBigDataCover from "../../utils/imgs/BigDataCover.jpg";
 import imgSecurity from "../../utils/imgs/landing-page/smalls/Security.svg";
 import imgSecurityCover from "../../utils/imgs/SecurityCover.jpg";
+import {useNavigate} from "react-router";
 
 const CategoryCard = ({cat}) => {
-
+    const nav = useNavigate()
     const [img, setImg] = useState(null)
     const [coverImg, setCoverImg] = useState(null)
 
@@ -47,12 +48,12 @@ const CategoryCard = ({cat}) => {
         }
     }, [])
 
-    const displayCategoryName = () => {
-
+    const getCategoryQuestions = async () => {
+        nav(`/app/trending/${cat}`)
     }
 
     return (
-        <div onMouseEnter={displayCategoryName} style={{backgroundImage: `URL(${coverImg})`}}
+        <div onClick={getCategoryQuestions} style={{backgroundImage: `URL(${coverImg})`}}
              className='category-card-container'>
             <img className='category-icon' src={img} alt={cat}/>
             <p>{cat}</p>

@@ -13,6 +13,7 @@ Web Dev Icon: https://www.svgrepo.com/svg/299073/web-ui
 System Admin Icon: https://www.svgrepo.com/svg/499815/network-server
 Software Engineer Icon: https://www.svgrepo.com/svg/474372/code
 Team Leader Icon: https://www.svgrepo.com/svg/192235/team
+Cyber Security Icon: https://www.svgrepo.com/svg/499811/firewall-fire
 
 Heart Icon: https://www.svgrepo.com/svg/508298/heart
 LogOut Icon: https://www.svgrepo.com/svg/508314/power
@@ -71,3 +72,5 @@ AILogo: https://www.svgrepo.com/svg/285154/robot
 BigDataLogo: https://www.svgrepo.com/svg/273724/data-storage
 
 Questions-parallax-img: Photo by <a href="https://unsplash.com/fr/@spaceboy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Henrik Dønnestad</a> on <a href="https://unsplash.com/wallpapers/cool/abstract?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Trash icon https://www.svgrepo.com/svg/246352/garbage-trash

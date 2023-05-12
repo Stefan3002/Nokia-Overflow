@@ -12,7 +12,7 @@ import {useHttpReq} from "../../utils/scripts/fetches/fetches";
 import {getUser} from "../../utils/store/user-store/user-selectors";
 import {useNavigate} from "react-router";
 
-const NewQuestion = () => {
+const NewQuestion = ({headerTitle}) => {
     const userData = useSelector(getUser)
     const nav = useNavigate()
     const sendRequest = useHttpReq()
@@ -48,12 +48,8 @@ const NewQuestion = () => {
             code,
             questionLabels: labels.split(',')
         }
-        try {
-            const res = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions`, 'POST', JSON.stringify(newQuestion))
-        } catch (err) {
-            console.log(err)
-        }
-        nav(`/app/trending`)
+        const res = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions`, 'POST', JSON.stringify(newQuestion), false, false, 'Question created successfully!')
+        dispatch(setQuestionOpened(false))
     }
     const setLoadingTrue = () => {
         dispatch(setLoading(true))

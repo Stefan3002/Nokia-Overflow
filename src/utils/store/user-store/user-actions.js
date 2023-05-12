@@ -26,3 +26,10 @@ export const setUserStatus = (status) => {
         payload: status
     }
 }
+
+export const setChangeUserInfo = (bool) => {
+    return {
+        type: 'SET_CHANGE_USER_INFO_OPENED',
+        payload: bool
+    }
+}

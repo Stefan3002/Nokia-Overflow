@@ -43,31 +43,20 @@ const Auth = () => {
         userData = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users/${user.user.uid}`, "GET", null, true)
         if (userData)
             alreadyCreated = true
-        console.log('OKIKDOKI', userData, alreadyCreated)
+
         if (!alreadyCreated)
             // Send the user to the DB
-            try {
-                const res = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users`, 'POST', JSON.stringify(createdUser))
-                console.log('This is what serve returned', res)
-            } catch (err) {
-                // TODO
-                // Create an error modal
-                console.log(err)
-            }
-
-        console.log('HELLO!', createdUser, alreadyCreated)
+            await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users`, 'POST', JSON.stringify(createdUser))
 
         // Get the data from the DB now.
-        if (!alreadyCreated)
-            try {
-                dispatch(setUserStart())
-                dispatch(setUserStatus('loading'))
-                userData = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users/${user.user.uid}`)
-                dispatch(setUserFinished(userData))
-                dispatch(setUserStatus('loaded'))
-            } catch (err) {
-                console.log(err)
-            }
+        if (!alreadyCreated) {
+            dispatch(setUserStart())
+            dispatch(setUserStatus('loading'))
+            userData = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users/${user.user.uid}`)
+            dispatch(setUserFinished(userData))
+            dispatch(setUserStatus('loaded'))
+        }
+
         dispatch(setIsPoppedUp(true))
         dispatch(setPopUpMessage(`Howdy, ${userData.displayName}`))
         nav('/app')

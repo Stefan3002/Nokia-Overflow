@@ -2,7 +2,8 @@ const INITIAL_VALUE = {
     user: null,
     isLoading: false,
     err: null,
-    status: 'idle'
+    status: 'idle',
+    isChangeUserInfoOpened: false
 }
 
 export const userReducer = (state = INITIAL_VALUE, action) => {
@@ -30,6 +31,11 @@ export const userReducer = (state = INITIAL_VALUE, action) => {
             return {
                 ...state,
                 status: payload
+            }
+        case 'SET_CHANGE_USER_INFO_OPENED':
+            return {
+                ...state,
+                isChangeUserInfoOpened: payload
             }
         default:
             return state

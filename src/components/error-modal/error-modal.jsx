@@ -15,10 +15,12 @@ const ErrorModal = ({errorMessage}) => {
             <div className="error-header">
                 <h2>Error!</h2>
             </div>
-            <p>{errorMessage}</p>
-            <Button text='Got it!' borderColor='var(--accent-color)' borderSize='1' textColor='var(--accent-color)'
-                    buttonBolded={false} clickHandler={closeError}/>
-            <p>Sorry for the inconvenience</p>
+            <div className="error-modal-text">
+                <p>{errorMessage}</p>
+                <Button text='Got it!' borderColor='var(--accent-color)' borderSize='1' textColor='var(--accent-color)'
+                        buttonBolded={false} clickHandler={closeError}/>
+                <p>Sorry for the inconvenience</p>
+            </div>
         </div>
     )
 }

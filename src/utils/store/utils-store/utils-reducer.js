@@ -5,7 +5,9 @@ const INITIAL_VALUE = {
     isError: false,
     errorMessage: "Something bad happened!",
     isPoppedUp: false,
-    popUpMessage: undefined
+    popUpMessage: undefined,
+    addAnswerOpened: false,
+    openedQuestionId: undefined
 }
 
 export const utilsReducer = (state = INITIAL_VALUE, action) => {
@@ -45,6 +47,16 @@ export const utilsReducer = (state = INITIAL_VALUE, action) => {
             return {
                 ...state,
                 popUpMessage: payload
+            }
+        case 'SET_ADD_ANSWER_OPENED':
+            return {
+                ...state,
+                addAnswerOpened: payload
+            }
+        case 'SET_OPENED_QUESTION_ID':
+            return {
+                ...state,
+                openedQuestionId: payload
             }
         default:
             return state
