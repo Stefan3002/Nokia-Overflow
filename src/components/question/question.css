@@ -110,14 +110,16 @@
     gap: 0.5rem;
   }
   .question-container .question-top {
-    flex-direction: column;
+      flex-direction: column;
   }
-  .question-container .question-top-left {
-    display: none;
-  }
-  .question-container .question-top-right {
-      padding: 0 0 0 1rem;
-  }
+
+    .question-container .question-top-left {
+        display: none;
+    }
+
+    .question-container .question-top-right {
+        padding: 0 0 0 1rem;
+    }
 }
 
 @media screen and (max-width: 700px) {

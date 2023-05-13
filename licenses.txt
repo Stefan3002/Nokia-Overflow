@@ -22,6 +22,7 @@ Trending Icon: https://www.svgrepo.com/svg/508271/badge
 LikeIcon: https://www.svgrepo.com/svg/499778/like
 
 PinIcon: https://www.svgrepo.com/svg/408412/heart-love-like-favorite
+EmptyPinIcon: https://www.svgrepo.com/svg/513098/heart
 
 USer Icon: https://www.svgrepo.com/svg/508323/user
 

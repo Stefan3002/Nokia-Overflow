@@ -3,6 +3,7 @@ import questionConfig from './question-config.json'
 import LikeIcon from '../../utils/imgs/app/icons/LikeIcon.svg'
 import Divider from "../divider/divider";
 import PinIcon from '../../utils/imgs/app/icons/PinIcon.svg'
+import EmptyPinIcon from '../../utils/imgs/app/icons/EmptyHeart.svg'
 import CategoryIcon from "../category-icon/category-icon";
 import {Link} from "react-router-dom";
 import Labels from "../labels/labels";
@@ -28,22 +29,25 @@ const Question = ({detailed, questionData, animationDelay}) => {
     const deleteQuestion = async () => {
         await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${questionID}`, 'DELETE')
     }
-
-    const addRemoveToFavourites = async () => {
+    const alreadyIn = () => {
         let alreadyIn = false
         for (let favourite of userData.favorites)
             if (questionID === favourite.questionID) {
                 alreadyIn = true
                 break
             }
-        if (!alreadyIn) {
+        return alreadyIn
+    }
+
+    const addRemoveToFavourites = async () => {
+        if (!alreadyIn()) {
             const userInfo = {
                 userID: userData.uid,
                 postID: questionID
             }
             await sendRequest(`${process.env.REACT_APP_SERVER_URL}/favorite`, 'POST', JSON.stringify(userInfo), false, false, 'Added to favorites!')
         } else {
-
+            await sendRequest(`${process.env.REACT_APP_SERVER_URL}/favorite/${questionID}/${userData.uid}`, 'DELETE', null, false, false, 'Removed from favorites!')
         }
     }
 
@@ -85,7 +89,10 @@ const Question = ({detailed, questionData, animationDelay}) => {
                         <p>{date}</p>
                         {user.uid === userData.uid &&
                             <img onClick={deleteQuestion} className='question-icon' src={trashSVG} alt=""/>}
-                        <img onClick={addRemoveToFavourites} className='question-icon' src={PinIcon} alt="Pin"/>
+                        {alreadyIn() ?
+                            <img onClick={addRemoveToFavourites} className='question-icon' src={PinIcon} alt="Pin"/> :
+                            <img onClick={addRemoveToFavourites} className='question-icon' src={EmptyPinIcon}
+                                 alt="Pin"/>}
                     </div>
                     </div>
                 </div>
