@@ -7,13 +7,9 @@
   transform: translate(-50%, -50%);
   background: var(--main-color);
   min-width: 50vw;
-  min-height: 50vh;
 }
 .error-modal-container .error-modal-text {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+    padding: 4rem;
 }
 .error-modal-container:after {
   content: "";

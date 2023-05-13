@@ -10,16 +10,19 @@ import Button from "../../button/button";
 import Answers from "../../answers/answers";
 import Editor from "@monaco-editor/react";
 import LikeIcon from "../../../utils/imgs/app/icons/LikeIcon.svg";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setAddAnswerOpened, setLoading, setOpenedQuestionId} from "../../../utils/store/utils-store/utils-actions";
 import Labels from "../../labels/labels";
 import {useHttpReq} from "../../../utils/scripts/fetches/fetches";
+import trashSVG from "../../../utils/imgs/app/icons/Trash.svg";
+import {getUser} from "../../../utils/store/user-store/user-selectors";
 
 const QuestionOpened = () => {
     const dispatch = useDispatch()
     const params = useParams()
     const [question, setQuestion] = useState(null)
     const sendRequest = useHttpReq()
+    const userData = useSelector(getUser)
 
     useEffect(() => {
         (async () => {
@@ -39,7 +42,9 @@ const QuestionOpened = () => {
         dispatch(setAddAnswerOpened(true))
         dispatch(setOpenedQuestionId(params.id))
     }
-
+    const deleteQuestion = async () => {
+        await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${params.id}`, 'DELETE', false, false, 'Deleted successfully!')
+    }
 
     if (question) {
         const {likes, dislikes, questionLabels} = question
@@ -51,11 +56,15 @@ const QuestionOpened = () => {
 
                 <div className='question-opened-container'>
                     <div className="user-info">
-                        <ProfileImage photoURL={question.user.photoURL} />
+                        <ProfileImage photoURL={question.user.photoURL}/>
                         <div className="right-user-container">
                             <p className='user-name'>{question.user.displayName}</p>
+                            {question.user.uid === userData.uid &&
+                                <p onClick={deleteQuestion}><img className='question-opened-icon' src={trashSVG}
+                                                                 alt=""/></p>}
+
                             <div className="labels-container-scrollable">
-                                <Labels fewItems={false} labels={questionLabels} />
+                                <Labels fewItems={false} labels={questionLabels}/>
                             </div>
                         </div>
                     </div>

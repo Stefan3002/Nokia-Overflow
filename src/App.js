@@ -31,6 +31,7 @@ import NewQuestion from "./components/new-question/new-question";
 import NewAnswer from "./components/new-answer/new-answer";
 import ChangeUserInfoModal from "./components/change-user-info-modal/change-user-info-modal";
 import {getChangeUserInfoOpened} from "./utils/store/user-store/user-selectors";
+import Favourites from "./components/favourites/favourites";
 
 function App() {
     const isError = useSelector(getIsError)
@@ -85,7 +86,14 @@ function App() {
                              element={<PrivateRoute><QuestionsPage
                                  component={<Trending detailed={true}/>}/></PrivateRoute>}>
                       </Route>
+                      <Route path='favourites' element={<PrivateRoute><QuestionsPage headerTitle='Favourite Questions'
+                                                                                     component={
+                                                                                         <Favourites/>}/></PrivateRoute>}/>
+                      <Route path='my-questions' element={<PrivateRoute><QuestionsPage headerTitle='My questions'
+                                                                                       component={<Favourites
+                                                                                           myQuestions={true}/>}/></PrivateRoute>}/>
                       <Route path='question/:id' element={<PrivateRoute><QuestionOpened/></PrivateRoute>}/>
+
                   </Route>
                   <Route path='/auth' element={<Auth/>}/>
                   <Route path='/auth/login' element={<AuthLogin/>}/>

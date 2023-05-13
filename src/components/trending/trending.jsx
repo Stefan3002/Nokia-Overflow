@@ -9,7 +9,7 @@ import Filter from "../filter/filter";
 import {useHttpReq} from "../../utils/scripts/fetches/fetches";
 import {useParams} from "react-router";
 
-const Trending = ({detailed}) => {
+const Trending = ({detailed, favourites}) => {
     const dispatch = useDispatch()
     const sendRequest = useHttpReq()
     const numberOfQuestionLoaded = 10
@@ -24,10 +24,11 @@ const Trending = ({detailed}) => {
 
     useEffect(() => {
         (async () => {
+            let questions
+
             let category = undefined
             if (params.category)
                 category = params.category
-            let questions = undefined
             if (!category)
                 questions = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${startIdx.current}/${lastIdx.current}`, 'GET', null, true)
             else

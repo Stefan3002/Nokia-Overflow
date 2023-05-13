@@ -51,6 +51,15 @@
   justify-content: center;
 }
 
+.profile-section-header {
+  text-align: center;
+}
+
+.profile-icon {
+  width: 40px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1100px) {
   .profile-top-row {
     flex-direction: column;

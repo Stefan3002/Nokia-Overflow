@@ -6,6 +6,7 @@ import firstQuestionBadge from '../../../utils/imgs/app/icons/Firstquestion.svg'
 import firstLikeReceivedBadge from '../../../utils/imgs/app/icons/Firstquestion.svg'
 import thousandPlusLikesReceivedBadges from '../../../utils/imgs/app/icons/Firstquestion.svg'
 import {useEffect, useState} from "react";
+
 const Badges = ({bronzeBadgesNames, silverBadgesNames, goldBadgesNames}) => {
 
     const [bronzeBadges, setBronzeBadges] = useState([])
@@ -34,7 +35,7 @@ const Badges = ({bronzeBadgesNames, silverBadgesNames, goldBadgesNames}) => {
                     break
             }
         for(const badge of goldBadgesNames)
-            switch (badge){
+            switch (badge) {
                 case '1000+LikesReceivedBadges':
                     const newGoldBadges = [...goldBadges, {
                         img: thousandPlusLikesReceivedBadges,
@@ -44,30 +45,33 @@ const Badges = ({bronzeBadgesNames, silverBadgesNames, goldBadgesNames}) => {
                     break
             }
     }, [])
-
-    return (
-        <div className='badges-container'>
-            {goldBadges.length ? <div className="gold-badges">
-                <img className='badge-icon' src={goldBadge} alt=""/>
-                <p>Senior Badges</p>
-                {
-                    goldBadges.map(badge => {
-                        return <img className='badge-icon' src={badge.img} alt={badge.name} name={badge}/>
-                    })
-                }
-            </div> : null}
-
-            {silverBadges.length ? <div className="silver-badges">
-                    <img className='badge-icon' src={silverBadge} alt=""/>
-                    <p>Middle Badges</p>
-                {
-                    silverBadges.map(badge => {
-                        return <img className='badge-icon' src={badge.img} alt={badge.name} name={badge}/>
-                    })
-                }
+    if (goldBadges.length || silverBadges.length || bronzeBadges.length)
+        return (
+            <div className='badges-container'>
+                <div className="profile-my-badges-header">
+                    <h2 className='profile-section-header'>My Badges</h2>
+                </div>
+                {goldBadges.length ? <div className="gold-badges">
+                    <img className='badge-icon' src={goldBadge} alt=""/>
+                    <p>Senior Badges</p>
+                    {
+                        goldBadges.map(badge => {
+                            return <img className='badge-icon' src={badge.img} alt={badge.name} name={badge}/>
+                        })
+                    }
                 </div> : null}
 
-            {bronzeBadges.length ? <div className="bronze-badges">
+                {silverBadges.length ? <div className="silver-badges">
+                    <img className='badge-icon' src={silverBadge} alt=""/>
+                    <p>Middle Badges</p>
+                    {
+                        silverBadges.map(badge => {
+                            return <img className='badge-icon' src={badge.img} alt={badge.name} name={badge}/>
+                        })
+                    }
+                </div> : null}
+
+                {bronzeBadges.length ? <div className="bronze-badges">
                     <img className='badge-icon' src={bronzeBadge} alt=""/>
                     <p>Junior Badges</p>
                     {
@@ -77,7 +81,9 @@ const Badges = ({bronzeBadgesNames, silverBadgesNames, goldBadgesNames}) => {
                     }
                 </div> : null}
 
-        </div>
-    )
+            </div>
+        )
+    else
+        return null
 }
 export default Badges

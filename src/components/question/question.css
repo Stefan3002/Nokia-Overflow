@@ -116,19 +116,26 @@
     display: none;
   }
   .question-container .question-top-right {
-    padding: 0 0 0 1rem;
+      padding: 0 0 0 1rem;
   }
 }
+
 @media screen and (max-width: 700px) {
-  .question-container {
-    width: 80vw;
-  }
-  .question-container .question-content {
-    padding: 0 0.3rem;
-  }
-  .question-container .question-bottom-user-data .user-question-img {
-    width: 50%;
-  }
+    .question-container {
+        width: 80vw;
+    }
+
+    .question-container .question-content {
+        padding: 0 0.3rem;
+    }
+
+    .question-icon {
+        display: none;
+    }
+
+    .question-icon .question-bottom-user-data .user-question-img {
+        width: 50%;
+    }
 }
 @keyframes popup {
   from {

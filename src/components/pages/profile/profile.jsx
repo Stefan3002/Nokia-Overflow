@@ -9,13 +9,18 @@ import MyQuestions from "../../profile/my-questions/my-questions";
 import Button from "../../button/button";
 import Badges from "../../profile/badges/badges";
 import {setChangeUserInfo} from "../../../utils/store/user-store/user-actions";
+import penSVG from '../../../utils/imgs/app/icons/PenSVG.svg'
+import {useNavigate} from "react-router";
 
 const Profile = () => {
     const userData = useSelector(getUser)
     const dispatch = useDispatch()
-
+    const nav = useNavigate()
     const openChangeUserModal = () => {
         dispatch(setChangeUserInfo(true))
+    }
+    const seeAllMyQuestions = () => {
+        nav('/app/my-questions')
     }
 
     if (userData) {
@@ -27,13 +32,10 @@ const Profile = () => {
                     <div className="profile-center">
                         <ProfileImage photoURL={photoURL}/>
                         <p className='profile-user-name'>{displayName}</p>
-                        <p onClick={openChangeUserModal}>Change</p>
+                        <p onClick={openChangeUserModal}><img className='profile-icon' src={penSVG} alt="Change"/></p>
                     </div>
                     <div className="profile-top-row">
                         <div className="profile-my-badges">
-                            <div className="profile-my-badges-header">
-                                <h2 className='profile-section-header'>My Badges</h2>
-                            </div>
                             <Badges bronzeBadgesNames={badges.bronze} silverBadgesNames={badges.silver} goldBadgesNames={badges.gold}  />
                         </div>
                         <div className="profile-stats">
@@ -61,7 +63,8 @@ const Profile = () => {
                     <div className="profile-my-questions">
                         <div className="profile-my-questions-header">
                             <h2 className='profile-section-header'>My Noks</h2>
-                            <Button borderColor='var(--accent-color)' borderSize='2' textColor='black' text='See all' />
+                            <Button borderColor='var(--accent-color)' clickHandler={seeAllMyQuestions} borderSize='2'
+                                    textColor='black' text='See all'/>
                         </div>
                         <MyQuestions numberOfQuestions={3} questions={questions} />
                     </div>

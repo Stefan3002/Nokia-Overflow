@@ -4,8 +4,8 @@
   text-align: justify;
 }
 .question-opened-container .labels-container-scrollable {
-    overflow: auto;
-    max-width: 50vw;
+  overflow: auto;
+  max-width: 50vw;
 }
 .question-opened-container .right-user-container .user-name {
   margin: 0.5rem 0;
@@ -49,6 +49,11 @@
 }
 .question-opened-container .question-opened-header .question-dislikes .question-icon {
   transform: rotate(180deg);
+}
+
+.question-opened-icon {
+  width: 40px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 2500px) {

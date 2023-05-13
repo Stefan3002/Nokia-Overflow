@@ -27,24 +27,31 @@ const Question = ({detailed, questionData, animationDelay}) => {
     const sendRequest = useHttpReq()
     const deleteQuestion = async () => {
         await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${questionID}`, 'DELETE')
-        window.location.reload(true)
     }
 
-    const addToFavourites = async () => {
-        const userInfo = {
-            userID: userData.uid,
-            postID: questionID
+    const addRemoveToFavourites = async () => {
+        let alreadyIn = false
+        for (let favourite of userData.favorites)
+            if (questionID === favourite.questionID) {
+                alreadyIn = true
+                break
+            }
+        if (!alreadyIn) {
+            const userInfo = {
+                userID: userData.uid,
+                postID: questionID
+            }
+            await sendRequest(`${process.env.REACT_APP_SERVER_URL}/favorite`, 'POST', JSON.stringify(userInfo), false, false, 'Added to favorites!')
+        } else {
+
         }
-        await sendRequest(`${process.env.REACT_APP_SERVER_URL}/favorite`, 'POST', JSON.stringify(userInfo), false, false, 'Added to favorites!')
     }
-
 
     return (
         <div className="question-outer-container">
-            {user.uid === userData.uid &&
-                <p onClick={deleteQuestion}><img className='question-icon' src={trashSVG} alt=""/></p>}
-            <Link to={`/app/question/${questionID}`}>
-                <div style={{animationDelay: `${animationDelay}ms`}} className='question-container'>
+
+            <div style={{animationDelay: `${animationDelay}ms`}} className='question-container'>
+                <Link to={`/app/question/${questionID}`}>
                     <div className="question-top-left">
                         <div className="question-likes">
                             <p className='question-likes-text'>{likes}</p>
@@ -65,23 +72,27 @@ const Question = ({detailed, questionData, animationDelay}) => {
                                 <p className='question-content'>{questionContent.slice(0, questionConfig.questionCharsLimit)} {questionContent.length > questionConfig.questionCharsLimit ? "Read more!" : null}</p> : null}
                         </div>
                     </div>
-                    <div className="question-bottom">
-                        <div className="question-bottom-left">
-                            <CategoryIcon cat={category}/>
-                        </div>
-                        <div className="question-bottom-user-data">
-                            <img className='user-question-img' src={user.photoURL} alt=""/>
-                            <p>{user.displayName}</p>
-                        </div>
-                        <div className="question-bottom-right">
-                            <p>{date}</p>
-                            <img onClick={addToFavourites} className='question-icon' src={PinIcon} alt="Pin"/>
-                        </div>
+                </Link>
+                <div className="question-bottom">
+                    <div className="question-bottom-left">
+                        <CategoryIcon cat={category}/>
+                    </div>
+                    <div className="question-bottom-user-data">
+                        <img className='user-question-img' src={user.photoURL} alt=""/>
+                        <p>{user.displayName}</p>
+                    </div>
+                    <div className="question-bottom-right">
+                        <p>{date}</p>
+                        {user.uid === userData.uid &&
+                            <img onClick={deleteQuestion} className='question-icon' src={trashSVG} alt=""/>}
+                        <img onClick={addRemoveToFavourites} className='question-icon' src={PinIcon} alt="Pin"/>
+                    </div>
                     </div>
                 </div>
-            </Link>
+
         </div>
 
     )
 }
+
 export default Question

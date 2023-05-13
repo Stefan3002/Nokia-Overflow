@@ -1,0 +1,27 @@
+.favourites-container .favourites-questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.favourites-container .favourites-header .favourites-header-top {
+  margin: 1rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.favourites-container .favourites-header-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 1100px) {
+  .favourites-container .favourites-questions, .favourites-container .favourites-header-bottom {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=favourites.css.map */
