@@ -1,8 +1,10 @@
 .profile-image-container {
-  border-radius: 50%;
-  object-fit: cover;
-  transform: scale(1.5);
-  border: 3px solid var(--main-color);
+    border-radius: 50%;
+    object-fit: cover;
+    transform: scale(1.5);
+    border: 3px solid var(--main-color);
+    height: 100px;
+    width: 100px;
 }
 
-/*# sourceMappingURL=small-profile-image.css.map */
+/*# sourceMappingURL=profile-image.css.map */

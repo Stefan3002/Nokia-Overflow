@@ -10,7 +10,7 @@ import fastIcon from '../../../utils/imgs/app/icons/FastIcon.svg'
 import badgeIcon from '../../../utils/imgs/app/icons/BadgeIcon.svg'
 import checkIcon from '../../../utils/imgs/app/icons/CheckIcon.svg'
 import Divider from "../../divider/divider";
-import {connectWithGoogle} from "../../../utils/firebase/firebase";
+import {connectWithGitHub, connectWithGoogle} from "../../../utils/firebase/firebase";
 import {useDispatch} from "react-redux";
 import {setUserFinished, setUserStart, setUserStatus} from "../../../utils/store/user-store/user-actions";
 import googleIcon from '../../../utils/imgs/app/icons/GoogleIcon.svg'
@@ -25,17 +25,18 @@ const Auth = () => {
         event.preventDefault()
         nav('/app')
     }
-    const connectWithGoogleFront = async () => {
-        const user = await connectWithGoogle()
+
+    const writeUserToBackend = async (user) => {
         dispatch(setUserFinished(user.user))
 
         // Get the relevant info
         const createdUser = {
-            uid: user.user.uid,
+            uid: user.user.uid ? user.user.uid : 'Human',
             displayName: user.user.displayName,
             email: user.user.email,
             photoURL: user.user.photoURL
         }
+        console.log(createdUser)
         // Get the user to see if it already exists in the DB
         let alreadyCreated = false;
         let userData = undefined
@@ -61,10 +62,18 @@ const Auth = () => {
         dispatch(setPopUpMessage(`Howdy, ${userData.displayName}`))
         nav('/app')
     }
+    const connectWithGoogleFront = async () => {
+        const user = await connectWithGoogle()
+        await writeUserToBackend(user)
+    }
+    const connectWithGitHubFront = async () => {
+        const user = await connectWithGitHub()
+        await writeUserToBackend(user)
+    }
 
     return (
         <div className='auth-container'>
-            <Parallax parallaxData={parallaxData} img={parallaxImg} height='40vh' />
+            <Parallax parallaxData={parallaxData} img={parallaxImg} height='40vh'/>
             <div className="auth-content wrapper">
                 <div className="auth-left">
                     <div className="auth-text">
@@ -80,12 +89,14 @@ const Auth = () => {
                 </div>
                 <div className="auth-right">
                     <h2>Sign-up</h2>
-                    <p onClick={connectWithGoogleFront}><img className='auth-icon' src={googleIcon} alt="Google Log In"/></p>
+                    <p onClick={connectWithGoogleFront}><img className='auth-icon' src={googleIcon}
+                                                             alt="Google Log In"/></p>
+                    <p onClick={connectWithGitHubFront}><img className='auth-icon' src="" alt="GitHub Log In"/></p>
                     <form onSubmit={createAccount} action="">
-                        <SearchInput placeholder='Username' borderSize='2' borderColor='var(--main-color)' />
-                        <SearchInput placeholder='Password' borderSize='2' borderColor='var(--main-color)' />
-                        <SearchInput placeholder='Confirm password' borderSize='2' borderColor='var(--main-color)' />
-                        <Button text='Sign up' borderSize='2' borderColor='var(--main-color)' textColor='black' />
+                        <SearchInput placeholder='Username' borderSize='2' borderColor='var(--main-color)'/>
+                        <SearchInput placeholder='Password' borderSize='2' borderColor='var(--main-color)'/>
+                        <SearchInput placeholder='Confirm password' borderSize='2' borderColor='var(--main-color)'/>
+                        <Button text='Sign up' borderSize='2' borderColor='var(--main-color)' textColor='black'/>
                     </form>
                     <p className='login-text'>Already a member? <a href="/auth/login">Log in</a></p>
                 </div>
