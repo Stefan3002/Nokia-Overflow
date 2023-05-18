@@ -1,0 +1,22 @@
+.choice-card {
+  border-radius: 10px;
+  background: var(--main-color);
+  color: var(--accent-color);
+  padding: 1rem;
+  transition: all 0.2s;
+}
+.choice-card:hover {
+  background: var(--accent-color);
+  color: var(--main-color);
+  transition: all 0.2s;
+}
+.choice-card .check-icon {
+  width: 40px;
+}
+
+.chosen {
+  background: var(--accent-color);
+  color: var(--main-color);
+}
+
+/*# sourceMappingURL=choice-card.css.map */

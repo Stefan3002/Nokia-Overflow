@@ -11,8 +11,9 @@ import {useCallback} from "react";
 export const useHttpReq = () => {
     const dispatch = useDispatch()
     const sendRequest = useCallback(
-        async (URL, method = 'GET', body = null, silentFail = false, silentSuccess = true, confirmationMessage = 'Success!') => {
-            dispatch(setLoading(true))
+        async (URL, method = 'GET', body = null, silentFail = false, silentSuccess = true, confirmationMessage = 'Success!', silentLoading = false) => {
+            if (!silentLoading)
+                dispatch(setLoading(true))
             try {
                 const res = await fetch(URL, {
                     method,
@@ -23,8 +24,8 @@ export const useHttpReq = () => {
                 })
 
                 const response = await res.json()
-
-                dispatch(setLoading(false))
+                if (!silentLoading)
+                    dispatch(setLoading(false))
                 if (!res.ok)
                     throw new Error(response.error)
                 else {

@@ -66,7 +66,7 @@ const Profile = () => {
                             <Button borderColor='var(--accent-color)' clickHandler={seeAllMyQuestions} borderSize='2'
                                     textColor='black' text='See all'/>
                         </div>
-                        <MyQuestions numberOfQuestions={3} questions={questions} />
+                        <MyQuestions detailed={true} numberOfQuestions={3} questions={questions}/>
                     </div>
                 </div>
             </>

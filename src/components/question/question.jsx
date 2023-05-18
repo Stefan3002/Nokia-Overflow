@@ -12,7 +12,7 @@ import {getUser} from "../../utils/store/user-store/user-selectors";
 import {useHttpReq} from "../../utils/scripts/fetches/fetches";
 import trashSVG from '../../utils/imgs/app/icons/Trash.svg'
 
-const Question = ({detailed, questionData, animationDelay}) => {
+const Question = ({high, detailed, questionData, animationDelay}) => {
     const {
         questionTitle,
         questionContent,
@@ -68,56 +68,115 @@ const Question = ({detailed, questionData, animationDelay}) => {
         await sendRequest(`${process.env.REACT_APP_SERVER_URL}/like`, 'POST', JSON.stringify(data), false, false, 'Dislike received!')
     }
 
-    return (
-        <div className="question-outer-container">
+    if (!high)
+        return (
+            <div className="question-outer-container">
 
-            <div style={{animationDelay: `${animationDelay}ms`}} className='question-container'>
-                <div className="question-top-left">
-                    <div className="question-likes">
-                        <p className='question-likes-text'>{likes}</p>
-                        <img onClick={sendLike} className='question-icon' src={LikeIcon} alt="Like"/>
-                    </div>
-                    <div className="question-dislikes">
-                        <p className='question-dislikes-text'>{dislikes}</p>
-                        <img onClick={sendDislike} className='question-icon dislike-icon' src={LikeIcon} alt="Dislike"/>
-                    </div>
-                </div>
-                <Link to={`/app/question/${questionID}`}>
-
-                    <div className="question-top">
-
-                        <div className="question-top-right">
-                            <h4 className='question-title'>{questionTitle}</h4>
-                            {questionLabels ? <Labels fewItems={true} labels={questionLabels}/> : null}
-                            <Divider/>
-                            {detailed ?
-                                <p className='question-content'>{questionContent.slice(0, questionConfig.questionCharsLimit)} {questionContent.length > questionConfig.questionCharsLimit ? "Read more!" : null}</p> : null}
+                <div style={{animationDelay: `${animationDelay}ms`}} className='question-container'>
+                    <div className="question-top-left">
+                        <div className="question-likes">
+                            <p className='question-likes-text'>{likes}</p>
+                            <img onClick={sendLike} className='question-icon' src={LikeIcon} alt="Like"/>
+                        </div>
+                        <div className="question-dislikes">
+                            <p className='question-dislikes-text'>{dislikes}</p>
+                            <img onClick={sendDislike} className='question-icon dislike-icon' src={LikeIcon}
+                                 alt="Dislike"/>
                         </div>
                     </div>
-                </Link>
-                <div className="question-bottom">
-                    <div className="question-bottom-left">
-                        <CategoryIcon cat={category}/>
+                    <Link to={`/app/question/${questionID}`}>
+
+                        <div className="question-top">
+
+                            <div className="question-top-right">
+                                <h4 className='question-title'>{questionTitle}</h4>
+                                {questionLabels ? <Labels fewItems={true} labels={questionLabels}/> : null}
+                                <Divider/>
+                                {detailed ?
+                                    <p className='question-content'>{questionContent.slice(0, questionConfig.questionCharsLimit)} {questionContent.length > questionConfig.questionCharsLimit ? "Read more!" : null}</p> : null}
+                            </div>
+                        </div>
+                    </Link>
+                    <div className="question-bottom">
+                        <div className="question-bottom-left">
+                            <CategoryIcon cat={category}/>
+                        </div>
+                        <div className="question-bottom-user-data">
+                            <img className='user-question-img' src={user.photoURL} alt=""/>
+                            <p>{user.displayName}</p>
+                        </div>
+                        <div className="question-bottom-right">
+                            <p>{date}</p>
+                            {user.uid === userData.uid &&
+                                <img onClick={deleteQuestion} className='question-icon' src={trashSVG} alt=""/>}
+                            {alreadyIn() ?
+                                <img onClick={addRemoveToFavourites} className='question-icon' src={PinIcon}
+                                     alt="Pin"/> :
+                                <img onClick={addRemoveToFavourites} className='question-icon' src={EmptyPinIcon}
+                                     alt="Pin"/>}
+                        </div>
                     </div>
-                    <div className="question-bottom-user-data">
-                        <img className='user-question-img' src={user.photoURL} alt=""/>
+                </div>
+
+            </div>
+
+        )
+    else
+        return (
+            <div className="question-outer-container-high">
+                <div className="question-left-high">
+                    <div className="question-user-data-high">
+                        <img className='user-question-img-high' src={user.photoURL} alt=""/>
                         <p>{user.displayName}</p>
                     </div>
                     <div className="question-bottom-right">
                         <p>{date}</p>
+                        <div className="question-bottom-left">
+                            <CategoryIcon cat={category}/>
+                        </div>
                         {user.uid === userData.uid &&
                             <img onClick={deleteQuestion} className='question-icon' src={trashSVG} alt=""/>}
                         {alreadyIn() ?
                             <img onClick={addRemoveToFavourites} className='question-icon' src={PinIcon} alt="Pin"/> :
                             <img onClick={addRemoveToFavourites} className='question-icon' src={EmptyPinIcon}
                                  alt="Pin"/>}
+                        <div className="question-likes">
+                            <p className='question-likes-text'>{likes}</p>
+                            <img onClick={sendLike} className='question-icon' src={LikeIcon} alt="Like"/>
+                        </div>
+                        <div className="question-dislikes">
+                            <p className='question-dislikes-text'>{dislikes}</p>
+                            <img onClick={sendDislike} className='question-icon dislike-icon' src={LikeIcon}
+                                 alt="Dislike"/>
+                        </div>
                     </div>
+                    <div className="question-top-left">
+
                     </div>
                 </div>
+                <div style={{animationDelay: `${animationDelay}ms`}} className='question-container-high'>
 
-        </div>
+                    <Link to={`/app/question/${questionID}`}>
 
-    )
+                        <div className="question-top-high">
+
+                            <div className="question-top-right-high">
+                                <h4 className='question-title'>{questionTitle}</h4>
+                                {questionLabels ? <Labels fewItems={true} labels={questionLabels}/> : null}
+                                <Divider/>
+                                {detailed ?
+                                    <p className='question-content'>{questionContent.slice(0, questionConfig.questionCharsLimit)} {questionContent.length > questionConfig.questionCharsLimit ? "Read more!" : null}</p> : null}
+                            </div>
+                        </div>
+                    </Link>
+
+                </div>
+
+            </div>
+
+        )
+
+
 }
 
 export default Question

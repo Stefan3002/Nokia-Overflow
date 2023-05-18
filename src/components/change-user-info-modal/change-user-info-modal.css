@@ -1,12 +1,14 @@
 .change-user-info-modal-container {
-  border-radius: 0 20px 20px 20px;
-  z-index: 11;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--main-color);
-  min-width: 50vw;
+    overflow-y: auto;
+    max-height: 80vh;
+    border-radius: 0 20px 20px 20px;
+    z-index: 11;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--main-color);
+    min-width: 50vw;
 }
 .change-user-info-modal-container .change-user-info-modal-text {
   padding: 5rem;

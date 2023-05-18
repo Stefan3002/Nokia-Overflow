@@ -7,6 +7,7 @@ import Blur from "../../blur/blur";
 import {getCreateQuestionOpened} from "../../../utils/store/utils-store/utils-selectors";
 import NewQuestion from "../../new-question/new-question";
 import CategoriesPreview from "../../categories-preview/categories-preview";
+import Trending from "../../trending/trending";
 
 const MainApp = () => {
 
@@ -19,7 +20,7 @@ const MainApp = () => {
             <div className='main-app-container'>
                 <div className="categories-preview-main">
                     <CategoriesPreview/>
-                    {/*<Trending detailed={false} />*/}
+                    <Trending feed={true} detailed={true}/>
                 </div>
                 <div className="main-app-right">
                     {/*<Unanswered />*/}

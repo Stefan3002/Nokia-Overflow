@@ -3,16 +3,18 @@ import Question from "../question/question";
 import Button from "../button/button";
 import SearchInput from "../search-input/search-input";
 import {useEffect, useRef, useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setQuestionOpened} from "../../utils/store/utils-store/utils-actions";
 import Filter from "../filter/filter";
 import {useHttpReq} from "../../utils/scripts/fetches/fetches";
 import {useParams} from "react-router";
+import {getUser} from "../../utils/store/user-store/user-selectors";
 
-const Trending = ({detailed, favourites}) => {
+const Trending = ({detailed, feed = false}) => {
+    const userData = useSelector(getUser)
     const dispatch = useDispatch()
     const sendRequest = useHttpReq()
-    const numberOfQuestionLoaded = 10
+    const numberOfQuestionLoaded = 5
     const params = useParams()
 
     const [trendingQuestions, setTrendingQuestions] = useState([])
@@ -22,19 +24,47 @@ const Trending = ({detailed, favourites}) => {
     const startIdx = useRef(0)
     const lastIdx = useRef(numberOfQuestionLoaded - 1)
 
+
+    const notIn = (el, array) => {
+        for (let elem of array)
+            if (elem.questionID === el.questionID)
+                return false
+
+        return true
+    }
+
     useEffect(() => {
         (async () => {
             let questions
+            let silentLoading = true
 
-            let category = undefined
-            if (params.category)
-                category = params.category
-            if (!category)
-                questions = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${startIdx.current}/${lastIdx.current}`, 'GET', null, true)
+            if (!trendingQuestions.length)
+                silentLoading = false
+
+            if (feed)
+                questions = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/feed/${userData.uid}/${startIdx.current}/${lastIdx.current}`, 'GET', null, true, true, '', silentLoading)
+            else {
+                let category = undefined
+                if (params.category)
+                    category = params.category
+                if (!category)
+                    questions = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${startIdx.current}/${lastIdx.current}`, 'GET', null, true, true, '', silentLoading)
+                else
+                    questions = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${startIdx.current}/${lastIdx.current}/${category}`, 'GET', null, true, true, '', silentLoading)
+            }
+
+            let differentQuestions = []
+            for (let question of questions.data)
+                if (notIn(question, differentQuestions) && notIn(question, trendingQuestions))
+                    differentQuestions.push(question)
+
+
+            let newQuestions
+            if (trendingQuestions.length)
+                newQuestions = [...trendingQuestions, ...differentQuestions]
             else
-                questions = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${startIdx.current}/${lastIdx.current}/${category}`, 'GET', null, true)
+                newQuestions = [...questions.data]
 
-            const newQuestions = [...trendingQuestions, ...questions.data]
             notLoaded.current = true
             setTrendingQuestions(newQuestions)
             setFilteredTrendingQuestions(newQuestions)
@@ -112,7 +142,8 @@ const Trending = ({detailed, favourites}) => {
             </div>
             <div className="trending-questions">
                 {filteredTrendingQuestions && filteredTrendingQuestions.map((trendingQuestion, idx) => {
-                    return <Question key={trendingQuestion.questionID} detailed={detailed}
+                    return <Question high={window.innerWidth > 1100 && idx % numberOfQuestionLoaded === 0}
+                                     key={trendingQuestion.questionID} detailed={detailed}
                                      questionData={trendingQuestion} animationDelay={idx * 100}/>
                 })}
             </div>

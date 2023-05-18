@@ -5,7 +5,7 @@ const SelectInput = ({options, borderSize, borderColor, callback}) => {
         <select onChange={callback} style={{border: `${borderSize}px solid ${borderColor}`}} className='select-input-container' name="" id="">
             {
                 options && options.map(option => {
-                    return <option value="">{option}</option>
+                    return <option value={option}>{option}</option>
                 })
             }
         </select>

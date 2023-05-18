@@ -77,3 +77,7 @@ Questions-parallax-img: Photo by <a href="https://unsplash.com/fr/@spaceboy?utm_
 Trash icon https://www.svgrepo.com/svg/246352/garbage-trash
 
 Pen Icon https://www.svgrepo.com/svg/186589/pen-draw
+
+
+
+Check from cards icon: https://www.svgrepo.com/svg/468260/check-circle
