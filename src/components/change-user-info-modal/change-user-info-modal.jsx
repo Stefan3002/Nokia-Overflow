@@ -19,7 +19,8 @@ const ChangeUserInfoModal = () => {
         const newUserData = {
             uid: userData.uid,
             photoURL: userData.photoURL,
-            displayName: newName
+            displayName: newName,
+            interests: userData.interests
         }
         await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users/${userData.uid}`, 'PATCH', JSON.stringify(newUserData), false, false, 'Info changed successfully!')
     }

@@ -51,21 +51,39 @@ const Question = ({detailed, questionData, animationDelay}) => {
         }
     }
 
+    const sendLike = async () => {
+        const data = {
+            postID: questionID,
+            userID: userData.uid,
+            valLike: 1
+        }
+        await sendRequest(`${process.env.REACT_APP_SERVER_URL}/like`, 'POST', JSON.stringify(data), false, false, 'Like received!')
+    }
+    const sendDislike = async () => {
+        const data = {
+            postID: questionID,
+            userID: userData.uid,
+            valLike: -1
+        }
+        await sendRequest(`${process.env.REACT_APP_SERVER_URL}/like`, 'POST', JSON.stringify(data), false, false, 'Dislike received!')
+    }
+
     return (
         <div className="question-outer-container">
 
             <div style={{animationDelay: `${animationDelay}ms`}} className='question-container'>
-                <Link to={`/app/question/${questionID}`}>
-                    <div className="question-top-left">
-                        <div className="question-likes">
-                            <p className='question-likes-text'>{likes}</p>
-                            <img className='question-icon' src={LikeIcon} alt="Likes"/>
-                        </div>
-                        <div className="question-dislikes">
-                            <p className='question-dislikes-text'>{dislikes}</p>
-                            <img className='question-icon dislike-icon' src={LikeIcon} alt="Dislikes"/>
-                        </div>
+                <div className="question-top-left">
+                    <div className="question-likes">
+                        <p className='question-likes-text'>{likes}</p>
+                        <img onClick={sendLike} className='question-icon' src={LikeIcon} alt="Like"/>
                     </div>
+                    <div className="question-dislikes">
+                        <p className='question-dislikes-text'>{dislikes}</p>
+                        <img onClick={sendDislike} className='question-icon dislike-icon' src={LikeIcon} alt="Dislike"/>
+                    </div>
+                </div>
+                <Link to={`/app/question/${questionID}`}>
+
                     <div className="question-top">
 
                         <div className="question-top-right">

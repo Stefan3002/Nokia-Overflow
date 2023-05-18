@@ -34,14 +34,15 @@ const Auth = () => {
             uid: user.user.uid ? user.user.uid : 'Human',
             displayName: user.user.displayName,
             email: user.user.email,
-            photoURL: user.user.photoURL
+            photoURL: user.user.photoURL,
+            interests: []
         }
         console.log(createdUser)
         // Get the user to see if it already exists in the DB
         let alreadyCreated = false;
         let userData = undefined
 
-        userData = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users/${user.user.uid}`, "GET", null, true)
+        userData = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/users/${user.user.uid}`, "GET", null, true, true)
         if (userData)
             alreadyCreated = true
 
