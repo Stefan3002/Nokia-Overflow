@@ -38,7 +38,8 @@ const ChangeUserInfoModal = () => {
             </div>
             <div className="change-user-info-modal-text">
                 <form onSubmit={changeUserInfo} action="">
-                    <SearchInput placeholder='New awesome name!' borderColor='var(--accent-color)' borderSize={1}/>
+                    <SearchInput placeholder='New awesome name!' value={userData.displayName}
+                                 borderColor='var(--accent-color)' borderSize={1}/>
                     <p>Your preferred category for news feed:</p>
                     <ChoiceCards setCards={setInterests} cards={categoriesStub.categoriesOptions}/>
                     {/*<SelectInput borderSize='1' borderColor='var(--accent-color)'*/}

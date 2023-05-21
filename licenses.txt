@@ -81,3 +81,5 @@ Pen Icon https://www.svgrepo.com/svg/186589/pen-draw
 
 
 Check from cards icon: https://www.svgrepo.com/svg/468260/check-circle
+
+GitHub icon: https://www.svgrepo.com/svg/512317/github-142

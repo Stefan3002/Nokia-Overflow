@@ -10,10 +10,12 @@ The repo with the back-end will be added at a later time.
 - Answer questions
 - Log in using your Google Account / GitHub Account, no need to remember another set of credentials
 - Add code to your posts in a dedicated editor
-- Pin favourites Noks
+- Pin favourites questions
 - Receive badges based on your activity on the platform
 - Highlight pieces of code from your answers using three backticks ``` like this```. Let the automatic parser handle the
   rest for you.
 - PWA compliant
 - Lazy loading for questions to increase performance.
+- Personalised feed computed based on your selected interests and then sorted by their impact on the platform.
+- Like or dislike questions
 - More coming...

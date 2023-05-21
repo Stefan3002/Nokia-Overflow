@@ -10,7 +10,7 @@ import {useHttpReq} from "../../utils/scripts/fetches/fetches";
 import {useParams} from "react-router";
 import {getUser} from "../../utils/store/user-store/user-selectors";
 
-const Trending = ({detailed, feed = false}) => {
+const Trending = ({detailed, feed = false, title}) => {
     const userData = useSelector(getUser)
     const dispatch = useDispatch()
     const sendRequest = useHttpReq()
@@ -131,7 +131,7 @@ const Trending = ({detailed, feed = false}) => {
 
             <div className="trending-header">
                 <div className="trending-header-top">
-                    <h2>Trending</h2>
+                    <h2>{title}</h2>
                     <Button clickHandler={createNewQuestion} text='Create Nok' borderSize='2'
                             borderColor='var(--accent-color)' textColor='black'/>
                 </div>

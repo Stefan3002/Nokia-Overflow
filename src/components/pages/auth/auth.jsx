@@ -1,9 +1,7 @@
 import './auth.css'
-import SearchInput from "../../search-input/search-input";
 import Parallax from "../../landing-page/parallax/parallax";
 import parallaxData from './parallax-data-auth.json'
 import parallaxImg from '../../../utils/imgs/app/Headers/AuthBanner.jpg'
-import Button from "../../button/button";
 import {useNavigate} from "react-router";
 import IconBox from "../../icon-box/icon-box";
 import fastIcon from '../../../utils/imgs/app/icons/FastIcon.svg'
@@ -16,6 +14,7 @@ import {setUserFinished, setUserStart, setUserStatus} from "../../../utils/store
 import googleIcon from '../../../utils/imgs/app/icons/GoogleIcon.svg'
 import {useHttpReq} from "../../../utils/scripts/fetches/fetches";
 import {setIsPoppedUp, setPopUpMessage} from "../../../utils/store/utils-store/utils-actions";
+import gitHubIcon from '../../../utils/imgs/app/icons/GitHub SVG.svg'
 
 const Auth = () => {
     const nav = useNavigate()
@@ -81,25 +80,29 @@ const Auth = () => {
                         <p>Join us now and get the answers you deserve to your most pressing questions.</p>
                     </div>
                     <div className="auth-bottom">
-                        <IconBox text='Get answers FAST!' icon={fastIcon} />
-                        <Divider />
-                        <IconBox text='Get BADGES for your contribution!' icon={badgeIcon} />
-                        <Divider />
-                        <IconBox text='Get RELIABLE answers!' icon={checkIcon} />
+                        <IconBox text='Get answers FAST!' icon={fastIcon}/>
+                        <Divider/>
+                        <IconBox text='Get BADGES for your contribution!' icon={badgeIcon}/>
+                        <Divider/>
+                        <IconBox text='Get RELIABLE answers!' icon={checkIcon}/>
                     </div>
                 </div>
                 <div className="auth-right">
                     <h2>Sign-up</h2>
-                    <p onClick={connectWithGoogleFront}><img className='auth-icon' src={googleIcon}
-                                                             alt="Google Log In"/></p>
-                    <p onClick={connectWithGitHubFront}><img className='auth-icon' src="" alt="GitHub Log In"/></p>
-                    <form onSubmit={createAccount} action="">
-                        <SearchInput placeholder='Username' borderSize='2' borderColor='var(--main-color)'/>
-                        <SearchInput placeholder='Password' borderSize='2' borderColor='var(--main-color)'/>
-                        <SearchInput placeholder='Confirm password' borderSize='2' borderColor='var(--main-color)'/>
-                        <Button text='Sign up' borderSize='2' borderColor='var(--main-color)' textColor='black'/>
-                    </form>
-                    <p className='login-text'>Already a member? <a href="/auth/login">Log in</a></p>
+                    <div className="provider-login">
+                        <p onClick={connectWithGoogleFront}><img className='auth-icon' src={googleIcon}
+                                                                 alt="Google Log In"/></p>
+                        <p onClick={connectWithGitHubFront}><img className='auth-icon' src={gitHubIcon}
+                                                                 alt="GitHub Log In"/></p>
+                    </div>
+
+                    {/*<form onSubmit={createAccount} action="">*/}
+                    {/*    <SearchInput placeholder='Username' borderSize='2' borderColor='var(--main-color)'/>*/}
+                    {/*    <SearchInput placeholder='Password' borderSize='2' borderColor='var(--main-color)'/>*/}
+                    {/*    <SearchInput placeholder='Confirm password' borderSize='2' borderColor='var(--main-color)'/>*/}
+                    {/*    <Button text='Sign up' borderSize='2' borderColor='var(--main-color)' textColor='black'/>*/}
+                    {/*</form>*/}
+                    {/*<p className='login-text'>Already a member? <a href="/auth/login">Log in</a></p>*/}
                 </div>
             </div>
         </div>

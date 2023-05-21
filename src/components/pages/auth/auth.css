@@ -5,6 +5,10 @@
   align-items: center;
   gap: 1rem;
 }
+.auth-container .auth-content .auth-right .provider-login {
+  display: flex;
+  gap: 1rem;
+}
 .auth-container .auth-content .auth-right form {
   display: flex;
   gap: 1rem;
