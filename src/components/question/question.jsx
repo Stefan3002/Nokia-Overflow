@@ -162,10 +162,10 @@ const Question = ({high, detailed, questionData, animationDelay}) => {
 
                             <div className="question-top-right-high">
                                 <h4 className='question-title'>{questionTitle}</h4>
-                                {questionLabels ? <Labels fewItems={true} labels={questionLabels}/> : null}
+                                {questionLabels ? <Labels light={true} fewItems={true} labels={questionLabels}/> : null}
                                 <Divider/>
                                 {detailed ?
-                                    <p className='question-content'>{questionContent.slice(0, questionConfig.questionCharsLimit)} {questionContent.length > questionConfig.questionCharsLimit ? "Read more!" : null}</p> : null}
+                                    <p className='inverse-high question-content'>{questionContent.slice(0, questionConfig.questionCharsLimit)} {questionContent.length > questionConfig.questionCharsLimit ? "Read more!" : null}</p> : null}
                             </div>
                         </div>
                     </Link>

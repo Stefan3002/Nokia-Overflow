@@ -10,21 +10,26 @@
   padding: 1rem
   min-width: 70vw
   max-height: 70vh
-  .new-question-icon
-    width: 50px
-    cursor: pointer
-    transition: all .2s
-    &:focus, &:hover
-      transform: scale(1.2)
-      transition: all .2s
-      background: red
+
   .new-question-header
     display: flex
     justify-content: right
     align-items: center
+
   .new-question-forms
     display: flex
     gap: 10px
     flex-direction: column
     justify-content: center
     align-items: center
+
+
+.new-question-icon
+  width: 50px
+  cursor: pointer
+  transition: all .2s
+
+  &:focus, &:hover
+    transform: scale(1.2)
+    transition: all .2s
+    background: red

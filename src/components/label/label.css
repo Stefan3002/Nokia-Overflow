@@ -1,8 +1,8 @@
 .label-container {
-  background: var(--accent-color);
-  color: white;
-  border-radius: 10px;
-  padding: 0.1rem 0.3rem;
+    background: var(--accent-color);
+    color: var(--main-color);
+    border-radius: 10px;
+    padding: 0.1rem 0.3rem;
 }
 .label-container p {
   margin: 0;

@@ -12,9 +12,11 @@ import AuthLogin from "./components/pages/auth-login/auth-login";
 import {stateListener} from "./utils/firebase/firebase";
 import {setUserError, setUserFinished, setUserStart, setUserStatus} from "./utils/store/user-store/user-actions";
 import {useDispatch, useSelector} from "react-redux";
-
+import PopUp from "./components/pop-up/pop-up";
 import ErrorModal from "./components/error-modal/error-modal";
 import {useHttpReq} from "./utils/scripts/fetches/fetches";
+import NewQuestion from "./components/new-question/new-question";
+import ChangeUserInfoModal from "./components/change-user-info-modal/change-user-info-modal";
 import {
     getCreateAnswerOpened,
     getCreateQuestionOpened,
@@ -23,16 +25,15 @@ import {
     getIsPoppedUp,
     getPopUpMessage
 } from "./utils/store/utils-store/utils-selectors";
+import NewAnswer from "./components/new-answer/new-answer";
 
 const Profile = React.lazy(() => import("./components/pages/profile/profile"));
 const Categories = React.lazy(() => import("./components/pages/categories/categories"));
 const QuestionOpened = React.lazy(() => import("./components/pages/question-opened/question-opened"));
 const QuestionsPage = React.lazy(() => import("./components/pages/questions-page/questions-page"));
 const Trending = React.lazy(() => import("./components/trending/trending"));
-const PopUp = React.lazy(() => import("./components/pop-up/pop-up"));
-const NewQuestion = React.lazy(() => import("./components/new-question/new-question"));
-const NewAnswer = React.lazy(() => import("./components/new-answer/new-answer"));
-const ChangeUserInfoModal = React.lazy(() => import("./components/change-user-info-modal/change-user-info-modal"));
+
+
 const Favourites = React.lazy(() => import("./components/favourites/favourites"));
 const HomePage = React.lazy(() => import("./components/pages/home-page/home-page"));
 
@@ -66,6 +67,7 @@ function App() {
             })()
         })
     }, [dispatch, sendRequest])
+
 
     return (
         <div className="App">

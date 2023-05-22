@@ -7,3 +7,4 @@ export const getPopUpMessage = (state) => state.utils.popUpMessage
 export const getIsPoppedUp = (state) => state.utils.isPoppedUp
 export const getCreateAnswerOpened = (state) => state.utils.addAnswerOpened
 export const getOpenedQuestionId = (state) => state.utils.openedQuestionId
+export const getInputsValid = (state) => state.utils.inputsValid

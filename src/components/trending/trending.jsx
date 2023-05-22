@@ -5,10 +5,11 @@ import SearchInput from "../search-input/search-input";
 import {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setQuestionOpened} from "../../utils/store/utils-store/utils-actions";
-import Filter from "../filter/filter";
 import {useHttpReq} from "../../utils/scripts/fetches/fetches";
 import {useParams} from "react-router";
 import {getUser} from "../../utils/store/user-store/user-selectors";
+import missingSVG from '../../utils/imgs/app/icons/Missing SVG.svg'
+import codeHighlighter from "../../utils/scripts/codeHighlighter";
 
 const Trending = ({detailed, feed = false, title}) => {
     const userData = useSelector(getUser)
@@ -37,12 +38,11 @@ const Trending = ({detailed, feed = false, title}) => {
         (async () => {
             let questions
             let silentLoading = true
-
             if (!trendingQuestions.length)
                 silentLoading = false
 
             if (feed)
-                questions = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/feed/${userData.uid}/${startIdx.current}/${lastIdx.current}`, 'GET', null, true, true, '', silentLoading)
+                questions = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/feed/${userData.uid}/${startIdx.current}/${lastIdx.current}`, 'GET', null, true, true, '', true)
             else {
                 let category = undefined
                 if (params.category)
@@ -73,10 +73,14 @@ const Trending = ({detailed, feed = false, title}) => {
 
     useEffect(() => {
         (async () => {
-            const categories = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/categories`)
+            const categories = await sendRequest(`${process.env.REACT_APP_SERVER_URL}/categories`, 'GET', null, true, true)
             setCategoriesOptions(categories.data)
         })()
     }, [])
+
+    useEffect(() => {
+        codeHighlighter()
+    }, [trendingQuestions])
 
     const createNewQuestion = () => {
         dispatch(setQuestionOpened(true))
@@ -86,7 +90,7 @@ const Trending = ({detailed, feed = false, title}) => {
     const filterQuestionsByCategory = (event) => {
         const selectedIndex = event.target.selectedIndex
         const selectedCategory = event.target[selectedIndex].innerText
-        if(selectedCategory === 'All')
+        if (selectedCategory === 'All')
             setFilteredTrendingQuestions(trendingQuestions)
         else
             setFilteredTrendingQuestions(trendingQuestions.filter(question => question.category === selectedCategory))
@@ -132,12 +136,13 @@ const Trending = ({detailed, feed = false, title}) => {
             <div className="trending-header">
                 <div className="trending-header-top">
                     <h2>{title}</h2>
-                    <Button clickHandler={createNewQuestion} text='Create Nok' borderSize='2'
+                    <Button clickHandler={createNewQuestion} text='Create question' borderSize='2'
                             borderColor='var(--accent-color)' textColor='black'/>
                 </div>
                 <div className="trending-header-bottom">
-                    <SearchInput callback={filterNoks} placeholder='Search noks' borderSize='2' borderColor='var(--accent-color)' />
-                    <Filter callback={filterQuestionsByCategory} options={categoriesOptions} />
+                    <SearchInput callback={filterNoks} placeholder='Search questions' borderSize='2'
+                                 borderColor='var(--accent-color)'/>
+                    {/*<Filter callback={filterQuestionsByCategory} options={categoriesOptions} />*/}
                 </div>
             </div>
             <div className="trending-questions">
@@ -147,7 +152,10 @@ const Trending = ({detailed, feed = false, title}) => {
                                      questionData={trendingQuestion} animationDelay={idx * 100}/>
                 })}
             </div>
-
+            {trendingQuestions.length === 0 && <div>
+                <img className='trending-icon' src={missingSVG} alt=""/>
+                <p>Please select a category of interest to you to see your personalised feed.</p>
+            </div>}
         </div>
     )
 }

@@ -16,6 +16,7 @@ import Labels from "../../labels/labels";
 import {useHttpReq} from "../../../utils/scripts/fetches/fetches";
 import trashSVG from "../../../utils/imgs/app/icons/Trash.svg";
 import {getUser} from "../../../utils/store/user-store/user-selectors";
+import codeHighlighter from "../../../utils/scripts/codeHighlighter";
 
 const QuestionOpened = () => {
     const dispatch = useDispatch()
@@ -23,6 +24,10 @@ const QuestionOpened = () => {
     const [question, setQuestion] = useState(null)
     const sendRequest = useHttpReq()
     const userData = useSelector(getUser)
+
+    useEffect(() => {
+        codeHighlighter()
+    }, [question])
 
     useEffect(() => {
         (async () => {
@@ -82,8 +87,8 @@ const QuestionOpened = () => {
                             </div>
                         </div>
                     </div>
-                    <Divider />
-                    <p>{question.questionContent}</p>
+                    <Divider/>
+                    <p className='question-content'>{question.questionContent}</p>
                     {question.code ? <Editor beforeMount={setLoadingTrue} onMount={setLoadingFalse} height='30vh' defaultValue={question.code} /> : null}
                     <Button marginTop='1rem' text='Add answer' textColor='black' borderColor='var(--accent-color)'
                             borderSize='2' clickHandler={openAddAnswer}/>

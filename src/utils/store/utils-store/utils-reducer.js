@@ -7,7 +7,8 @@ const INITIAL_VALUE = {
     isPoppedUp: false,
     popUpMessage: undefined,
     addAnswerOpened: false,
-    openedQuestionId: undefined
+    openedQuestionId: undefined,
+    inputsValid: false
 }
 
 export const utilsReducer = (state = INITIAL_VALUE, action) => {
@@ -57,6 +58,11 @@ export const utilsReducer = (state = INITIAL_VALUE, action) => {
             return {
                 ...state,
                 openedQuestionId: payload
+            }
+        case 'SET_INPUTS_VALID':
+            return {
+                ...state,
+                inputsValid: payload
             }
         default:
             return state

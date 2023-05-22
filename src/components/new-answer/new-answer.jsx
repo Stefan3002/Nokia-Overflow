@@ -11,6 +11,7 @@ import SearchInput from "../search-input/search-input";
 import Editor from "@monaco-editor/react";
 import Button from "../button/button";
 import {getOpenedQuestionId} from "../../utils/store/utils-store/utils-selectors";
+import {minLengthValidator, requiredValidator} from "../../utils/scripts/validators/validators";
 
 const NewAnswer = () => {
     const questionId = useSelector(getOpenedQuestionId)
@@ -62,8 +63,11 @@ const NewAnswer = () => {
             </div>
             <h2>New Answer</h2>
             <form onSubmit={createAnswer} className="new-answer-forms" action=''>
-                <SearchInput placeholder='Title of the answer' borderColor='black' borderSize='1'/>
-                <SearchInput placeholder='Description of the answer' borderColor='black' borderSize='1'/>
+                <SearchInput validators={[requiredValidator, minLengthValidator]} validatorOptions={{minLength: 5}}
+                             placeholder='Title of the answer' borderColor='black' borderSize='1'/>
+                <SearchInput validators={[requiredValidator, minLengthValidator]} validatorOptions={{minLength: 30}}
+                             textArea={true} placeholder='Description of the answer' borderColor='black'
+                             borderSize='1'/>
                 <Editor beforeMount={setLoadingTrue} onMount={setLoadingFalse} onChange={code => setCode(code)}
                         width='70%' height='50vh' language='javascript' defaultValue='Insert code here.'/>
                 <Button type='submit' text='Create answer' borderSize='1' borderColor='black' textColor='black'/>

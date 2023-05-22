@@ -1,7 +1,5 @@
 import './answer.css'
 import SmallProfileImage from "../small-profile-image/small-profile-image";
-import {useEffect} from "react";
-import codeHighlighter from "../../utils/scripts/codeHighlighter";
 import Editor from "@monaco-editor/react";
 import {useSelector} from "react-redux";
 import {getUser} from "../../utils/store/user-store/user-selectors";
@@ -13,10 +11,6 @@ const Answer = ({data}) => {
     const {user, answerTitle, answerDetails, code, answerID} = data
     const sendRequest = useHttpReq()
 
-    useEffect(() => {
-        codeHighlighter()
-    }, [data])
-    console.log(user.uid, userData.uid)
 
     const deleteAnswer = async () => {
         await sendRequest(`${process.env.REACT_APP_SERVER_URL}/answers/${answerID}`, 'DELETE', null, false, false, 'Answer deleted!')

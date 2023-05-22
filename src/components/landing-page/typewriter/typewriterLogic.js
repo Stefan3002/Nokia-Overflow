@@ -17,12 +17,14 @@ const startTypewriter = () => {
 
     function helpTypeWrite(){
         index += 1
-        if(index > words.length - 1)
+        if (index > words.length - 1)
             index = 0
         // Color the corresponding target
         const target = document.querySelector(`#target${index + 1}`)
-        target.classList.add('highlighted-target')
-        typeWrite(words[index])
+        if (target) {
+            target.classList.add('highlighted-target')
+            typeWrite(words[index])
+        }
     }
 
     function typeWrite(word){
@@ -43,8 +45,10 @@ const startTypewriter = () => {
         }
         else {
             const target = document.querySelector(`#target${index + 1}`)
-            target.classList.remove('highlighted-target')
-            helpTypeWrite()
+            if (target) {
+                target.classList.remove('highlighted-target')
+                helpTypeWrite()
+            }
         }
     }
 

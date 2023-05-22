@@ -4,4 +4,12 @@
   background: transparent;
 }
 
+textarea {
+  resize: none;
+}
+
+.error-message {
+  color: var(--err-color);
+}
+
 /*# sourceMappingURL=search-input.css.map */

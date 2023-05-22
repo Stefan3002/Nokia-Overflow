@@ -58,3 +58,11 @@ export const setOpenedQuestionId = (id) => {
         payload: id
     }
 }
+
+
+export const setInputsValid = (bool) => {
+    return {
+        type: 'SET_INPUTS_VALID',
+        payload: bool
+    }
+}

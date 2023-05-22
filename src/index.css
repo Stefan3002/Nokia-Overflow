@@ -9,12 +9,20 @@ html{
 .logo{
   width: 70px
 }
-.high-code{
+.high-code {
   background: var(--accent-color);
   color: white;
   padding: .1rem;
   font-style: italic;
 }
+
+.high-code-inversed {
+  background: var(--main-color);
+  color: var(--accent-color);
+  padding: .1rem;
+  font-style: italic;
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;

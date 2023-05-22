@@ -36,7 +36,6 @@ const Auth = () => {
             photoURL: user.user.photoURL,
             interests: []
         }
-        console.log(createdUser)
         // Get the user to see if it already exists in the DB
         let alreadyCreated = false;
         let userData = undefined
@@ -82,7 +81,7 @@ const Auth = () => {
                     <div className="auth-bottom">
                         <IconBox text='Get answers FAST!' icon={fastIcon}/>
                         <Divider/>
-                        <IconBox text='Get BADGES for your contribution!' icon={badgeIcon}/>
+                        <IconBox text='See your CONTRIBUTION to the app!' icon={badgeIcon}/>
                         <Divider/>
                         <IconBox text='Get RELIABLE answers!' icon={checkIcon}/>
                     </div>

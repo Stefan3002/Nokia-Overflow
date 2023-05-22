@@ -11,8 +11,10 @@ import {useState} from "react";
 import {useHttpReq} from "../../utils/scripts/fetches/fetches";
 import {getUser} from "../../utils/store/user-store/user-selectors";
 import {useNavigate} from "react-router";
+import {minLengthValidator, requiredValidator} from "../../utils/scripts/validators/validators";
 
 const NewQuestion = ({headerTitle}) => {
+
     const userData = useSelector(getUser)
     const nav = useNavigate()
     const sendRequest = useHttpReq()
@@ -66,13 +68,17 @@ const NewQuestion = ({headerTitle}) => {
             </div>
             <h2>New Nok</h2>
             <form onSubmit={createQuestion} className="new-question-forms" action=''>
-                <SearchInput placeholder='Title of the Nok' borderColor='black' borderSize='1' />
-                <SearchInput placeholder='Description of the Nok' borderColor='black' borderSize='1' />
-                <SelectInput options={categoriesOptions} borderSize='1' borderColor='black' />
+                <SearchInput validators={[requiredValidator, minLengthValidator]} validatorOptions={{minLength: 5}}
+                             placeholder='Title of the question.' borderColor='black' borderSize='1'/>
+                <SearchInput validators={[requiredValidator, minLengthValidator]} validatorOptions={{minLength: 30}}
+                             placeholder='Description of the question.' borderColor='black' borderSize='1'
+                             textArea={true}/>
+                <SelectInput options={categoriesOptions} borderSize='1' borderColor='black'/>
                 <Editor beforeMount={setLoadingTrue} onMount={setLoadingFalse} onChange={code => setCode(code)}
                         width='70%' height='50vh' language='javascript' defaultValue='Insert code here.'/>
                 <SearchInput placeholder='Input many labels, comma separated!' borderColor='black' borderSize='1'/>
-                <Button type='submit' text='Create Nok' borderSize='1' borderColor='black' textColor='black'/>
+                <Button canBeDisabled={true} type='submit' text='Create Nok' borderSize='1' borderColor='black'
+                        textColor='black'/>
             </form>
         </div>
     )

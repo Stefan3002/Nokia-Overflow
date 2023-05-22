@@ -1,7 +1,9 @@
 import './label.css'
-const Label = ({labelData}) => {
+
+const Label = ({labelData, light}) => {
     return (
-        <div className='label-container'>
+        <div className='label-container'
+             style={light && {background: 'var(--main-color)', color: 'var(--accent-color)'}}>
             <p>{labelData}</p>
         </div>
     )

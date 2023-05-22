@@ -20,7 +20,7 @@ const MainApp = () => {
             <div className='main-app-container'>
                 <div className="categories-preview-main">
                     <CategoriesPreview/>
-                    <Trending feed={true} detailed={true} title='Your feed'/>
+                    <Trending feed={true} detailed={true} title='Your feed' s/>
                 </div>
                 <div className="main-app-right">
                     {/*<Unanswered />*/}
