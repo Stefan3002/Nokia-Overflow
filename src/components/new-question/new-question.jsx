@@ -76,7 +76,8 @@ const NewQuestion = ({headerTitle}) => {
                 <SelectInput options={categoriesOptions} borderSize='1' borderColor='black'/>
                 <Editor beforeMount={setLoadingTrue} onMount={setLoadingFalse} onChange={code => setCode(code)}
                         width='70%' height='50vh' language='javascript' defaultValue='Insert code here.'/>
-                <SearchInput placeholder='Input many labels, comma separated!' borderColor='black' borderSize='1'/>
+                <SearchInput noValidation={true} placeholder='Input many labels, comma separated!' borderColor='black'
+                             borderSize='1'/>
                 <Button canBeDisabled={true} type='submit' text='Create Nok' borderSize='1' borderColor='black'
                         textColor='black'/>
             </form>

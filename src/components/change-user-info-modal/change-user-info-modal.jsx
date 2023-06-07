@@ -8,6 +8,7 @@ import categoriesStub from '../../utils/data-stubs/question-categories.json'
 import {setChangeUserInfo} from "../../utils/store/user-store/user-actions";
 import ChoiceCards from "../choice-cards/choice-cards";
 import {useState} from "react";
+import {minLengthValidator, requiredValidator} from "../../utils/scripts/validators/validators";
 
 const ChangeUserInfoModal = () => {
     const userData = useSelector(getUser)
@@ -38,7 +39,8 @@ const ChangeUserInfoModal = () => {
             </div>
             <div className="change-user-info-modal-text">
                 <form onSubmit={changeUserInfo} action="">
-                    <SearchInput placeholder='New awesome name!' value={userData.displayName}
+                    <SearchInput validators={[minLengthValidator, requiredValidator]} validatorOptions={{minLength: 5}}
+                                 placeholder='New awesome name!' value={userData.displayName}
                                  borderColor='var(--accent-color)' borderSize={1}/>
                     <p>Your preferred category for news feed:</p>
                     <ChoiceCards setCards={setInterests} cards={categoriesStub.categoriesOptions}/>

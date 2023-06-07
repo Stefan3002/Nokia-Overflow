@@ -140,7 +140,7 @@ const Trending = ({detailed, feed = false, title}) => {
                             borderColor='var(--accent-color)' textColor='black'/>
                 </div>
                 <div className="trending-header-bottom">
-                    <SearchInput callback={filterNoks} placeholder='Search questions' borderSize='2'
+                    <SearchInput callback={filterNoks} placeholder='Search questions' borderSize='2' noValidation={true}
                                  borderColor='var(--accent-color)'/>
                     {/*<Filter callback={filterQuestionsByCategory} options={categoriesOptions} />*/}
                 </div>

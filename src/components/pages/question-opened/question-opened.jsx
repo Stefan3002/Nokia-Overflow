@@ -50,6 +50,22 @@ const QuestionOpened = () => {
     const deleteQuestion = async () => {
         await sendRequest(`${process.env.REACT_APP_SERVER_URL}/questions/${params.id}`, 'DELETE', false, false, 'Deleted successfully!')
     }
+    const sendLike = async () => {
+        const data = {
+            postID: params.id,
+            userID: userData.uid,
+            valLike: 1
+        }
+        await sendRequest(`${process.env.REACT_APP_SERVER_URL}/like`, 'POST', JSON.stringify(data), false, false, 'Like received!')
+    }
+    const sendDislike = async () => {
+        const data = {
+            postID: params.id,
+            userID: userData.uid,
+            valLike: -1
+        }
+        await sendRequest(`${process.env.REACT_APP_SERVER_URL}/like`, 'POST', JSON.stringify(data), false, false, 'Dislike received!')
+    }
 
     if (question) {
         const {likes, dislikes, questionLabels} = question
@@ -79,11 +95,12 @@ const QuestionOpened = () => {
                         <div className="question-opened-metrics">
                             <div className="question-likes">
                                 <p className='question-likes-text'>{likes}</p>
-                                <img className='question-icon' src={LikeIcon} alt="Likes"/>
+                                <img className='question-icon' onClick={sendLike} src={LikeIcon} alt="Likes"/>
                             </div>
                             <div className="question-dislikes">
                                 <p className='question-dislikes-text'>{dislikes}</p>
-                                <img className='question-icon dislike-icon' src={LikeIcon} alt="Dislikes"/>
+                                <img className='question-icon dislike-icon' onClick={sendDislike} src={LikeIcon}
+                                     alt="Dislikes"/>
                             </div>
                         </div>
                     </div>

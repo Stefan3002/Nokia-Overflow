@@ -11,21 +11,24 @@ const SearchInput = ({
                          borderSize,
                          borderColor,
                          callback,
-                         textArea
+                         textArea,
+                         noValidation = false
                      }) => {
     const dispatch = useDispatch()
     const [inputValue, setInputValue] = useState(value || '')
     const [valid, setValid] = useState(true)
     const inputChanged = (event) => {
-        let isValid = true
-        for (let validator of validators) {
-            if (!validator(event.target.value, validatorOptions)) {
-                isValid = false
-                break
+        if (!noValidation) {
+            let isValid = true
+            for (let validator of validators) {
+                if (!validator(event.target.value, validatorOptions)) {
+                    isValid = false
+                    break
+                }
             }
+            dispatch(setInputsValid(isValid))
+            setValid(isValid)
         }
-        dispatch(setInputsValid(isValid))
-        setValid(isValid)
         setInputValue(event.target.value)
         if (callback)
             callback(event)
