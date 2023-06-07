@@ -8,14 +8,19 @@ The repo with the back-end will be added at a later time.
 - Create a profile and see centralised info about your activity
 - Ask questions and get answers fast
 - Answer questions
-- Log in using your Google Account / GitHub Account, no need to remember another set of credentials
+- Log in using your Google Account or GitHub Account, no need to remember another set of credentials
 - Add code to your posts in a dedicated editor
 - Pin favourites questions
-- Receive badges based on your activity on the platform
 - Highlight pieces of code from your answers using three backticks ``` like this```. Let the automatic parser handle the
   rest for you.
 - PWA compliant
 - Lazy loading for questions to increase performance.
 - Personalised feed computed based on your selected interests and then sorted by their impact on the platform.
 - Like or dislike questions
-- More coming...
+- Select and change the categories of questions you are interested in to change the personalised feed.
+
+## Collaborators:
+
+- Roxana Goina (backend)
+- Lazar Iasmina (backend)
+- Ligia-Tabita Pintea (Nokia coordinator)
