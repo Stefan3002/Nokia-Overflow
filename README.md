@@ -2,7 +2,7 @@
 
 Get answers from Nokia experts
 Note: This repo holds only the front-end of the app.
-The repo with the back-end will be added at a later time.
+
 ## Features:
 
 - Create a profile and see centralised info about your activity
@@ -18,6 +18,10 @@ The repo with the back-end will be added at a later time.
 - Personalised feed computed based on your selected interests and then sorted by their impact on the platform.
 - Like or dislike questions
 - Select and change the categories of questions you are interested in to change the personalised feed.
+
+## Author of this repo:
+
+- Stefan Secrieru (frontend / leader of the team)
 
 ## Collaborators:
 
